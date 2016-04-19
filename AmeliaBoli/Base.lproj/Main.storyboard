@@ -36,9 +36,16 @@ Got This!</string>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-iQ-ZJU">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" style="plain" id="vnZ-ZD-Zbo"/>
+                                    <barButtonItem image="Share" style="plain" id="vnZ-ZD-Zbo">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="presentShareController:" destination="BYZ-38-t0r" id="yNu-Nk-NRl"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sNP-gl-Dng"/>
-                                    <barButtonItem title="Settings" id="nmZ-Xb-eGi"/>
+                                    <barButtonItem image="Settings" id="nmZ-Xb-eGi">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -69,4 +76,8 @@ Got This!</string>
             <point key="canvasLocation" x="245" y="337"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Settings" width="42" height="42"/>
+        <image name="Share" width="42" height="42"/>
+    </resources>
 </document>

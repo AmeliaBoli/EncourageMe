@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController { //, UITapGestureRecognizerDelegate {
 
+    @IBOutlet weak var toolbar: UIToolbar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func manageToolbar(recognizer: UITapGestureRecognizer) {
+        if toolbar.hidden == true {
+            toolbar.hidden = false
+        } else {
+            toolbar.hidden = true
+        }
     }
-
 
 }
 

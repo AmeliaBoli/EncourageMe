@@ -43,6 +43,7 @@ Got This!</string>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKj-iQ-ZJU" secondAttribute="bottom" id="No5-SC-8Dp"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WWJ-HX-S1s"/>
@@ -50,9 +51,20 @@ Got This!</string>
                             <constraint firstItem="mwH-1Q-39U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="agp-99-cLj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cKj-iQ-ZJU" secondAttribute="trailing" constant="-20" id="eBQ-Zm-XBL"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qEy-hN-WbF" appends="YES" id="eDm-Ix-lEr"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="toolbar" destination="cKj-iQ-ZJU" id="nb6-tK-87V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qEy-hN-WbF">
+                    <connections>
+                        <action selector="manageToolbar:" destination="BYZ-38-t0r" id="bHG-Iv-ewK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="337"/>
         </scene>

@@ -8,13 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController { //, UITapGestureRecognizerDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+            }
+    
+    override func viewWillAppear(animated: Bool) {
+        let lastLaunched = NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched")
+        if let lastLaunchedDate = lastLaunched as? NSDate {
+            let calendar = NSCalendar.currentCalendar()
+            if !calendar.isDateInToday(lastLaunchedDate) {
+                //presentFirstTimeOnlyView
+                print("Worked")
+                NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
+            }
+        } else {
+            //launch Onboarding
+            NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
+            print(NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched"))
+        }
     }
     
     @IBAction func presentShareController(sender: UIBarButtonItem) {

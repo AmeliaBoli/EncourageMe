@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944F502D1CD2CED800AC0D0B /* Messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 944F502C1CD2CED800AC0D0B /* Messages.plist */; };
 		94AC9AFE1CC6C31800D0C4B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AFD1CC6C31800D0C4B3 /* AppDelegate.swift */; };
 		94AC9B001CC6C31800D0C4B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AFF1CC6C31800D0C4B3 /* ViewController.swift */; };
 		94AC9B031CC6C31800D0C4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AC9B011CC6C31800D0C4B3 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		944F502C1CD2CED800AC0D0B /* Messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Messages.plist; sourceTree = "<group>"; };
 		94AC9AFA1CC6C31800D0C4B3 /* AmeliaBoli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmeliaBoli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AC9AFD1CC6C31800D0C4B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94AC9AFF1CC6C31800D0C4B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				94AC9AFF1CC6C31800D0C4B3 /* ViewController.swift */,
 				94AC9B011CC6C31800D0C4B3 /* Main.storyboard */,
 				94D456E31CC9BC4E008258C8 /* SettingsViewController.swift */,
+				944F502C1CD2CED800AC0D0B /* Messages.plist */,
 				94D456E51CC9BD0E008258C8 /* SettingsModel.swift */,
 				94AC9B2B1CCAB59D00D0C4B3 /* NotificationFrequencyViewController.swift */,
 				94AC9B2D1CCAB79000D0C4B3 /* ScheduleNotifications.swift */,
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944F502D1CD2CED800AC0D0B /* Messages.plist in Resources */,
 				94AC9B081CC6C31800D0C4B3 /* LaunchScreen.storyboard in Resources */,
 				94AC9B051CC6C31800D0C4B3 /* Assets.xcassets in Resources */,
 				94AC9B031CC6C31800D0C4B3 /* Main.storyboard in Resources */,

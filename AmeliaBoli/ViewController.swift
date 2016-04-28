@@ -41,9 +41,8 @@ class ViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
             }
         } else {
-            //launch Onboarding
+            // TODO: Launch Onboarding
             NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
-            print(NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched"))
         }
     }
     

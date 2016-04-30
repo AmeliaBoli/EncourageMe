@@ -64,30 +64,16 @@ class Message {
         let count = array.count
         var randomizedArray = Array(0.stride(to: count, by: 1))
         
-//        while randomizedArray.count < messages.count {
-//            var j = 0
-//            while j < colors.count {
-//                randomizedArray.append(j)
-//                j += 1
-//            }
-//        }
-//        
-//        while randomizedArray.count > messages.count {
-//            randomizedArray.removeLast()
-//        }
-        
-//        repeat {
-            repeat {
-                var i = 0
-                while i < randomizedArray.count - 1 {
-                    let randomIndex = Int(arc4random_uniform(UInt32(randomizedArray.count)))
-                    if i != randomIndex {
-                        swap(&randomizedArray[i], &randomizedArray[randomIndex])
-                        i += 1
-                    }
+        repeat {
+            var i = 0
+            while i < randomizedArray.count - 1 {
+                let randomIndex = Int(arc4random_uniform(UInt32(randomizedArray.count)))
+                if i != randomIndex {
+                    swap(&randomizedArray[i], &randomizedArray[randomIndex])
+                    i += 1
                 }
-            } while randomizedArray[0] == lastUsed
-//        } while checkForConsecutiveDuplicates(randomizedArray)
+            }
+        } while randomizedArray[0] == lastUsed
         
         lastUsed = randomizedArray.last!
         return randomizedArray

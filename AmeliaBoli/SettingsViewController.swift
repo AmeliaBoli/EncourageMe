@@ -39,17 +39,6 @@ class SettingsViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.dismissDatePicker))
         view.addGestureRecognizer(tap)
         
-        // Load User Settings
-        if let userSettingsFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey("userSettings") as? [String: AnyObject] {
-            userSettings.fromHour = userSettingsFromDefaults["fromHour"] as! Int
-            userSettings.fromMinute = userSettingsFromDefaults["fromMinute"] as! Int
-            userSettings.toHour = userSettingsFromDefaults["toHour"] as! Int
-            userSettings.toMinute = userSettingsFromDefaults["toMinute"] as! Int
-            userSettings.hecticNumber = userSettingsFromDefaults["hecticNumber"] as! Int
-            userSettings.steadyNumber = userSettingsFromDefaults["steadyNumber"] as! Int
-            userSettings.relaxedNumber = userSettingsFromDefaults["relaxedNumber"] as! Int
-        }
-        
         fromTimeField.text = String(format: "\(userSettings.fromHour):%02d AM", userSettings.fromMinute)
         
         let toHourTwelve: Int
@@ -152,8 +141,8 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func donePressed(sender: UIButton) {
-        message.scheduleMessageNotifications()
-        dismissViewControllerAnimated(true, completion: { let lastLaunched = NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched")
+        dismissViewControllerAnimated(true, completion: {
+            let lastLaunched = NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched")
             if let lastLaunchedDate = lastLaunched as? NSDate {
                 let calendar = NSCalendar.currentCalendar()
                 if !calendar.isDateInToday(lastLaunchedDate) {
@@ -170,7 +159,9 @@ class SettingsViewController: UIViewController {
         userSettings.hecticNumber = Int(hecticStepper.value)
         userSettings.steadyNumber = Int(steadyStepper.value)
         userSettings.relaxedNumber = Int(relaxedStepper.value)
-                
+        
+        
+        
         let userSettingsDict = ["fromHour": userSettings.fromHour,
                                 "fromMinute": userSettings.fromMinute,
                                 "toHour": userSettings.toHour,

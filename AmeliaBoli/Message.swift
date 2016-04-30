@@ -15,49 +15,68 @@ private let messagesFromPlist = NSArray(contentsOfFile:filePath) as! Array<Strin
 class Message {
     static let sharedInstance = Message()
     
+    private init() {
+    }
+    
     let messages = messagesFromPlist
-    var randomMessageIndexes: Array<Int> {
-        get {
-            let storedMessages = NSUserDefaults.standardUserDefaults().arrayForKey("randomizedMessages")
-            if let storedRandomMessages = storedMessages as? Array<Int> where !storedRandomMessages.isEmpty {
-                return storedRandomMessages
-            } else {
-                return randomizeArray(messages, key: "lastUsedMessage")
-            }
+    var randomMessageIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18, 19, 20, 21]
+    var lastUsedMessage = 21
+    
+    let colors = [UIColor(red:0.859, green:0.384, blue:0, alpha:1), // orange #db6200
+        UIColor(red:0.404, green:0, blue:0.749, alpha:1), // purple #6700bf
+        UIColor(red:0.122, green:0.647, blue:0, alpha:1), // green (bluer) #1fa500
+        UIColor(red:0.655, green:0, blue:0.714, alpha:1), // violet #a700b6
+        UIColor(red:0.706, green:0, blue:0, alpha:1), // red #b40000
+        //UIColor(red:0.886, green:0.812, blue:0, alpha:1), // yellow (gold) #e2cf00
+        UIColor(red:0.765, green:0, blue:0.467, alpha:1), // magenta #c30077
+        UIColor(red:0.522, green:0.792, blue:0, alpha:1), // green (yellower) #c30077
+        UIColor(red:0, green:0.243, blue:0.686, alpha:1)] // blue #003eaf]
+    
+    var randomColorIndexes = [0, 1, 2, 3, 4, 5, 6, 7]
+    var lastUsedColor = 7
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    
+    func loadSettings() {
+        if let storedRandomizedMessages = userDefaults.arrayForKey("randomizedMessages") as? Array<Int> where !storedRandomizedMessages.isEmpty {
+            randomMessageIndexes = storedRandomizedMessages
+        } else {
+            randomMessageIndexes = randomizeArray(messages, lastUsed: &lastUsedMessage)
         }
-        set {
+        if let storedRandomizedColors = userDefaults.arrayForKey("randomizedColors") as? Array<Int> where !storedRandomizedColors.isEmpty {
+            randomColorIndexes = storedRandomizedColors
+        } else {
+            randomColorIndexes = randomizeArray(colors, lastUsed: &lastUsedColor)
+        }
+        if let storedLastMessage = userDefaults.objectForKey("lastUsedMessage") as? Int {
+            lastUsedMessage = storedLastMessage
+        } else {
+            lastUsedMessage = randomMessageIndexes.last!
+        }
+        if let storedLastColor = userDefaults.objectForKey("lastUsedColor") as? Int {
+            lastUsedColor = storedLastColor
+        } else {
+            lastUsedColor = randomColorIndexes.last!
         }
     }
     
-    // TODO: Fill in the rest of the data here
-    let colors = [UIColor.redColor(), UIColor.blueColor(), UIColor.purpleColor()]
-    var randomColorIndexes: Array<Int> {
-        get {
-            let storedColors = NSUserDefaults.standardUserDefaults().arrayForKey("randomizedColors")
-            if let storedRandomColors = storedColors as? Array<Int> where !storedRandomColors.isEmpty {
-                return storedRandomColors
-            } else {
-                return randomizeArray(colors, key: "lastUsedColor")
-            }
-        }
-        set {
-        }
-    }
-    
-    func randomizeArray(array: Array<AnyObject>, key: String) -> Array<Int> {
+    func randomizeArray(array: Array<AnyObject>, inout lastUsed: Int) -> (Array<Int>) {
         let count = array.count
         var randomizedArray = Array(0.stride(to: count, by: 1))
-        let lastUsedIndex = NSUserDefaults.standardUserDefaults().integerForKey(key)
         
-        while randomizedArray.count < messages.count {
-            var j = 0
-            while j < colors.count {
-                randomizedArray.append(j)
-                j += 1
-            }
-        }
+//        while randomizedArray.count < messages.count {
+//            var j = 0
+//            while j < colors.count {
+//                randomizedArray.append(j)
+//                j += 1
+//            }
+//        }
+//        
+//        while randomizedArray.count > messages.count {
+//            randomizedArray.removeLast()
+//        }
         
-        repeat {
+//        repeat {
             repeat {
                 var i = 0
                 while i < randomizedArray.count - 1 {
@@ -67,10 +86,10 @@ class Message {
                         i += 1
                     }
                 }
-            } while randomizedArray[0] == lastUsedIndex
-        } while checkForConsecutiveDuplicates(randomizedArray)
+            } while randomizedArray[0] == lastUsed
+//        } while checkForConsecutiveDuplicates(randomizedArray)
         
-        NSUserDefaults.standardUserDefaults().setInteger(randomizedArray.last!, forKey: key)
+        lastUsed = randomizedArray.last!
         return randomizedArray
     }
     
@@ -86,11 +105,12 @@ class Message {
         return false
     }
     
-    func createTodaysItem(array: Array<AnyObject>, randomIndexes: Array<Int>, key: String) -> AnyObject{
-        var randomIndexes = randomIndexes
+    func createTodaysItem(array: Array<AnyObject>, inout randomIndexes: Array<Int>, inout lastUsedIndex: Int) -> AnyObject {
+        if randomIndexes.isEmpty {
+            randomIndexes = randomizeArray(array, lastUsed: &lastUsedIndex)
+        }
         let todaysIndex = randomIndexes.removeFirst()
         let todaysItem = array[todaysIndex]
-        NSUserDefaults.standardUserDefaults().setObject(randomIndexes, forKey: key)
         return todaysItem
     }
     
@@ -100,7 +120,6 @@ class Message {
         let alert: UIUserNotificationType = .Alert
         if let settings = currentSettings where settings.types.contains(alert) {
             let randomTimes = getSemiRandomTimes()
-            print(randomTimes)
             var notifications = [UILocalNotification]()
             
             for (time, index) in zip(randomTimes, randomMessageIndexes) {
@@ -109,8 +128,14 @@ class Message {
                 notification.fireDate = time
                 notifications.append(notification)
             }
-            //print(notifications)
             myApplication.scheduledLocalNotifications = notifications
         }
+    }
+    
+    func saveSettings() {
+        userDefaults.setObject(randomMessageIndexes, forKey: "randomizedMessages")
+        userDefaults.setObject(lastUsedMessage, forKey: "lastUsedMessage")
+        userDefaults.setObject(randomColorIndexes, forKey: "randomizedColors")
+        userDefaults.setObject(lastUsedColor, forKey: "lastUsedColor")
     }
 }

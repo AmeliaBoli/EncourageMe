@@ -12,7 +12,6 @@ class UserSettings {
     static let sharedInstance = UserSettings()
     
     private init() {
-        
     }
     
     let calendar = NSCalendar.currentCalendar()
@@ -45,31 +44,51 @@ class UserSettings {
             let components = calendar.components([.Hour, .Minute], fromDate: newTime)
             toHour = components.hour
             toMinute = components.minute
-        } 
+        }
     }
     
     var periodLength: Double {
-        get {
-            return Double((toHour * 60 + toMinute) - (fromHour * 60 + fromMinute))
-        }
+        return Double((toHour * 60 + toMinute) - (fromHour * 60 + fromMinute))
+        
     }
     
     var startMinutesSinceMidnight: Double {
-        get {
-            return Double(fromHour * 60 + fromMinute)
-        }
+        return Double(fromHour * 60 + fromMinute)
     }
-
+    
     var hecticNumber = 6
     var steadyNumber = 4
     var relaxedNumber = 2
     
-    var lastFrequencyPicked: String {
-        let storedFrequency = NSUserDefaults.standardUserDefaults().stringForKey("frequency")
-        if let lastStoredFrequency = storedFrequency {
-            return lastStoredFrequency
-        } else {
-            return "steady"
+    var lastFrequencyPicked = "steady"
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    
+    func loadSettings() {
+        if let userSettingsFromDefaults = userDefaults.objectForKey("userSettings") as? [String: AnyObject] {
+            fromHour = userSettingsFromDefaults["fromHour"] as! Int
+            fromMinute = userSettingsFromDefaults["fromMinute"] as! Int
+            toHour = userSettingsFromDefaults["toHour"] as! Int
+            toMinute = userSettingsFromDefaults["toMinute"] as! Int
+            hecticNumber = userSettingsFromDefaults["hecticNumber"] as! Int
+            steadyNumber = userSettingsFromDefaults["steadyNumber"] as! Int
+            relaxedNumber = userSettingsFromDefaults["relaxedNumber"] as! Int
         }
+        if let storedFrequency = userDefaults.stringForKey("frequency") {
+            lastFrequencyPicked = storedFrequency
+        }
+    }
+    
+    func saveSettings() {
+        let userSettingsDict = ["fromHour": fromHour,
+                                "fromMinute": fromMinute,
+                                "toHour": toHour,
+                                "toMinute": toMinute,
+                                "hecticNumber": hecticNumber,
+                                "steadyNumber": steadyNumber,
+                                "relaxedNumber": relaxedNumber]
+        userDefaults.setObject(userSettingsDict, forKey: "userSettings")
+        userDefaults.setObject(lastFrequencyPicked, forKey: "frequency")
+
     }
 }

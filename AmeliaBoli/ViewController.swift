@@ -23,12 +23,13 @@ class ViewController: UIViewController {
         swipeLeft.direction = .Left
         self.view.addGestureRecognizer(swipeLeft)
         
-        messageLabel.text = message.createTodaysItem(message.messages, randomIndexes: message.randomMessageIndexes, key: "randomizedMessages") as? String
-        view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: message.randomColorIndexes, key: "randomizedColors") as? UIColor
+        messageLabel.text = message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
+        view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
     }
     
     override func viewWillAppear(animated: Bool) {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForPickerDisplay), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadView), name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,8 +72,8 @@ class ViewController: UIViewController {
     }
     
     func reloadView() {
-        messageLabel.text = message.createTodaysItem(message.messages, randomIndexes: message.randomMessageIndexes, key: "randomizedMessages") as? String
-        view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: message.randomColorIndexes, key: "randomizedColors") as? UIColor
+        messageLabel.text = message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
+        view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
     }
        
     @IBAction func manageToolbar(recognizer: UITapGestureRecognizer) {

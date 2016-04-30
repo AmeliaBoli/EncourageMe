@@ -16,7 +16,7 @@ func getSemiRandomTimes() -> [NSDate] {
     let userSettings = UserSettings.sharedInstance
     let message = Message.sharedInstance
     
-    message.randomizeArray(message.messages, key: "randomizedMessages")
+    message.randomizeArray(message.messages, lastUsed: &message.lastUsedMessage)
     
     var notificationTimes = [NSDate]()
     var dayToSchedule = NSDate()

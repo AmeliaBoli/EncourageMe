@@ -29,4 +29,9 @@ class NotificationFrequencyViewController: UIViewController {
         }        
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        UIApplication.sharedApplication().statusBarHidden = false
+    }
 }

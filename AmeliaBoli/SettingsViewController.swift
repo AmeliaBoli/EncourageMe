@@ -152,10 +152,13 @@ class SettingsViewController: UIViewController {
                     
                     NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
                 }
-            }})
+            }
+        })
     }
     
     override func viewWillDisappear(animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
         userSettings.hecticNumber = Int(hecticStepper.value)
         userSettings.steadyNumber = Int(steadyStepper.value)
         userSettings.relaxedNumber = Int(relaxedStepper.value)

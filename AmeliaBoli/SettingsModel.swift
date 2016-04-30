@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct UserSettings {
+class UserSettings {
+    static let sharedInstance = UserSettings()
+    
+    private init() {
+        
+    }
+    
     let calendar = NSCalendar.currentCalendar()
     let components = NSDateComponents()
     
@@ -42,7 +48,28 @@ struct UserSettings {
         } 
     }
     
+    var periodLength: Double {
+        get {
+            return Double((toHour * 60 + toMinute) - (fromHour * 60 + fromMinute))
+        }
+    }
+    
+    var startMinutesSinceMidnight: Double {
+        get {
+            return Double(fromHour * 60 + fromMinute)
+        }
+    }
+
     var hecticNumber = 6
     var steadyNumber = 4
     var relaxedNumber = 2
+    
+    var lastFrequencyPicked: String {
+        let storedFrequency = NSUserDefaults.standardUserDefaults().stringForKey("frequency")
+        if let lastStoredFrequency = storedFrequency {
+            return lastStoredFrequency
+        } else {
+            return "steady"
+        }
+    }
 }

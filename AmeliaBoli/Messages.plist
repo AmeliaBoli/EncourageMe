@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<string>&quot;You Got This!&quot;</string>
-	<string>&quot;I&apos;m Glad You&apos;re Here&quot;</string>
-	<string>&quot;You Make a Difference&quot;</string>
-	<string>&quot;I Admire Your Passion&quot;</string>
-	<string>&quot;Try It One More Time&quot;</string>
-	<string>&quot;Smile. You Are Beautiful!&quot;</string>
-	<string>&quot;The Best is Yet to Come&quot;</string>
-	<string>&quot;Celebrate Who You Are&quot;</string>
-	<string>&quot;You Are Enough&quot;</string>
-	<string>&quot;Believe in Yourself&quot;</string>
-	<string>&quot;You Can Do It!&quot;</string>
-	<string>&quot;You Are Creative&quot;</string>
-	<string>&quot;You Are Deserving&quot;</string>
-	<string>&quot;Your Choices Make a Difference&quot;</string>
-	<string>&quot;I Believe In You&quot;</string>
-	<string>&quot;You Are Important&quot;</string>
-	<string>&quot;You Are Strong&quot;</string>
-	<string>&quot;Fight For Your Dreams&quot;</string>
-	<string>&quot;Your&apos;e Awesome!</string>
-	<string>&quot;Be Yourself&quot;</string>
-	<string>&quot;You Can Do Anything&quot;</string>
-</array>
+    <array>
+        <string>You Got This!</string>
+        <string>I&apos;m Glad You&apos;re Here</string>
+        <string>You Make a Difference</string>
+        <string>I Admire Your Passion</string>
+        <string>Try It One More Time</string>
+        <string>Smile. You Are Beautiful!</string>
+        <string>The Best is Yet to Come</string>
+        <string>Celebrate Who You Are</string>
+        <string>You Are Enough</string>
+        <string>Believe in Yourself</string>
+        <string>You Can Do It!</string>
+        <string>You Are Creative</string>
+        <string>You Are Deserving</string>
+        <string>Your Choices Make a Difference</string>
+        <string>I Believe In You</string>
+        <string>You Are Important</string>
+        <string>You Are Strong</string>
+        <string>Fight For Your Dreams</string>
+        <string>Your&apos;e Awesome!</string>
+        <string>Be Yourself</string>
+        <string>You Can Do Anything</string>
+    </array>
 </plist>

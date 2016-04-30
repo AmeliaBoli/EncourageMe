@@ -10,18 +10,25 @@ import UIKit
 
 class NotificationFrequencyViewController: UIViewController {
     
+    let userSettings = UserSettings.sharedInstance
+    let message = Message.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func setNotificationFrequency(sender: UIButton) {
         switch sender.tag {
-        case 0: scheduleNotifications("hectic")
-        case 1: scheduleNotifications("steady")
-        case 2: scheduleNotifications("relaxed")
+        case 0:
+            NSUserDefaults.standardUserDefaults().setObject("hectic", forKey: "frequency")
+        case 1:
+            NSUserDefaults.standardUserDefaults().setObject("steady", forKey: "frequency")
+        case 2:
+            NSUserDefaults.standardUserDefaults().setObject("relaxed", forKey: "frequency")
         default: print("Error")
         }
         
+        message.scheduleMessageNotifications()
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

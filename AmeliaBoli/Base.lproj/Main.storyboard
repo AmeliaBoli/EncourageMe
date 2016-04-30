@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwH-1Q-39U">
-                                <rect key="frame" x="199" y="241" width="202" height="117"/>
+                                <rect key="frame" x="40" y="242" width="520" height="117"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">You
@@ -55,17 +55,31 @@ Got This!</string>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="mwH-1Q-39U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="0TU-i2-ntJ"/>
+                            <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GZa-NJ-mzc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKj-iQ-ZJU" secondAttribute="bottom" id="No5-SC-8Dp"/>
+                            <constraint firstItem="cKj-iQ-ZJU" firstAttribute="top" secondItem="mwH-1Q-39U" secondAttribute="bottom" constant="20" id="Qg9-CT-wil"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mwH-1Q-39U" secondAttribute="trailing" constant="20" id="VPh-fH-JXO"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WWJ-HX-S1s"/>
                             <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZX9-2P-bQk"/>
                             <constraint firstItem="mwH-1Q-39U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="agp-99-cLj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cKj-iQ-ZJU" secondAttribute="trailing" constant="-20" id="eBQ-Zm-XBL"/>
+                            <constraint firstItem="mwH-1Q-39U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="jBN-Q9-uTz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZX9-2P-bQk"/>
+                                <exclude reference="agp-99-cLj"/>
+                                <exclude reference="jBN-Q9-uTz"/>
+                                <exclude reference="Qg9-CT-wil"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="qEy-hN-WbF" appends="YES" id="eDm-Ix-lEr"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="messageLabel" destination="mwH-1Q-39U" id="7rd-Wc-fyW"/>
                         <outlet property="toolbar" destination="cKj-iQ-ZJU" id="nb6-tK-87V"/>
                     </connections>
                 </viewController>

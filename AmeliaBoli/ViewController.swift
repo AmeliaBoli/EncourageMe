@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
         message.registerShortcutItem()
         
+        // Set message font size
         let foursScreenWidth = CGFloat(320)
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
@@ -36,14 +37,15 @@ class ViewController: UIViewController {
         messageLabel.font.fontWithSize(newMessageFontSize)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForNotification), name: UIApplicationDidBecomeActiveNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForPickerDisplay), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForSpecialView), name: UIApplicationDidBecomeActiveNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadView), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     func checkForNotification() {
@@ -56,21 +58,26 @@ class ViewController: UIViewController {
          }
     }
     
-    func checkForPickerDisplay() {
+    func checkForSpecialView() {
         if !message.notificationReceived {
             let lastLaunched = NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched")
             if let lastLaunchedDate = lastLaunched as? NSDate {
                 let calendar = NSCalendar.currentCalendar()
                 if !calendar.isDateInToday(lastLaunchedDate) {
+                    NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
+
                     let controller: NotificationFrequencyViewController
                     controller = storyboard?.instantiateViewControllerWithIdentifier("notificationFrequency") as! NotificationFrequencyViewController
                     self.presentViewController(controller, animated: true, completion: nil)
-                    
-                    NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
                 }
             } else {
-                // TODO: Launch Onboarding
-                NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
+                let frequencyController: NotificationFrequencyViewController
+                frequencyController = storyboard?.instantiateViewControllerWithIdentifier("notificationFrequency") as! NotificationFrequencyViewController
+                self.presentViewController(frequencyController, animated: true, completion: nil) // {
+//                    let onboardingController: OnboardingViewController
+//                    onboardingController = self.storyboard?.instantiateViewControllerWithIdentifier("firstLaunch") as! OnboardingViewController
+//                    self.presentViewController(onboardingController, animated: true, completion: nil)
+//                })
             }
         }
     }

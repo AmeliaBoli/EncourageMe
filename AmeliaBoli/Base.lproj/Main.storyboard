@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="928" y="337"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding View Controller-->
         <scene sceneID="Kld-ks-HKJ">
             <objects>
-                <viewController storyboardIdentifier="firstLaunch" id="jjo-W3-ckh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstLaunch" id="jjo-W3-ckh" customClass="OnboardingViewController" customModule="AmeliaBoli" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hiT-Zg-jJt"/>
                         <viewControllerLayoutGuide type="bottom" id="sjV-86-mdP"/>
@@ -215,9 +215,17 @@
                                 <exclude reference="slj-Ci-6rX"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fhg-hd-kvp" appends="YES" id="J71-QX-hlw"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzP-qR-vcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fhg-hd-kvp">
+                    <connections>
+                        <action selector="dismissView:" destination="jjo-W3-ckh" id="VCe-rw-O4b"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1616" y="337"/>
         </scene>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34DC75271CD6679000BE10E6 /* Arizonia.otf in Resources */ = {isa = PBXBuildFile; fileRef = 34DC75261CD6679000BE10E6 /* Arizonia.otf */; };
+		34DC75291CD682A000BE10E6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC75281CD682A000BE10E6 /* OnboardingViewController.swift */; };
 		944F502D1CD2CED800AC0D0B /* Messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 944F502C1CD2CED800AC0D0B /* Messages.plist */; };
 		944F50311CD2CED800AC0D0B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F50301CD2CED800AC0D0B /* Message.swift */; };
 		944F50331CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F50321CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		34DC75261CD6679000BE10E6 /* Arizonia.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arizonia.otf; sourceTree = "<group>"; };
+		34DC75281CD682A000BE10E6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		944F502C1CD2CED800AC0D0B /* Messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Messages.plist; sourceTree = "<group>"; };
 		944F50301CD2CED800AC0D0B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		944F50321CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiRandomTimeGenerator.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				94AC9AFF1CC6C31800D0C4B3 /* ViewController.swift */,
 				94D456E31CC9BC4E008258C8 /* SettingsViewController.swift */,
 				94AC9B2B1CCAB59D00D0C4B3 /* NotificationFrequencyViewController.swift */,
+				34DC75281CD682A000BE10E6 /* OnboardingViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				94D456E61CC9BD0E008258C8 /* SettingsModel.swift in Sources */,
 				94AC9B001CC6C31800D0C4B3 /* ViewController.swift in Sources */,
 				94AC9B2C1CCAB59D00D0C4B3 /* NotificationFrequencyViewController.swift in Sources */,
+				34DC75291CD682A000BE10E6 /* OnboardingViewController.swift in Sources */,
 				94D456E41CC9BC4E008258C8 /* SettingsViewController.swift in Sources */,
 				944F50331CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift in Sources */,
 				94AC9AFE1CC6C31800D0C4B3 /* AppDelegate.swift in Sources */,

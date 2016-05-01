@@ -57,6 +57,16 @@ class SettingsViewController: UIViewController {
         relaxedStepper.value = Double(userSettings.relaxedNumber)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let lastLaunched = NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched")
+        if (lastLaunched as? NSDate) == nil {
+            let onboardingController: OnboardingViewController
+            onboardingController = self.storyboard?.instantiateViewControllerWithIdentifier("firstLaunch") as! OnboardingViewController
+            self.presentViewController(onboardingController, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func edittingBegan(sender: UITextField) {
         let datePicker = UIDatePicker(frame: CGRectZero)
         datePicker.datePickerMode = .Time

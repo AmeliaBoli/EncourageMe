@@ -51,7 +51,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        if shortcutItem.type == "com.Amelia-Boli.AmeliaBoli.setFrequency" {
+            switch shortcutItem.localizedTitle {
+            case "Hectic": userSettings.lastFrequencyPicked = "hectic"
+                case "Steady": userSettings.lastFrequencyPicked = "steady"
+            case "Relaxed": userSettings.lastFrequencyPicked = "relaxed"
+            default: print("Error with Home Screen Quick Actions")
+            }
+        completionHandler(true)
+        }
+        completionHandler(false)
+        }
 }
 

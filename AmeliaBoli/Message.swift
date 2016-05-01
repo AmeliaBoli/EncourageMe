@@ -36,7 +36,7 @@ class Message {
     var lastUsedColor = 7
     
     var notificationMessage = ""
-    var notificationIndex = 0
+    var notificationIndex: Int? = 0
     var notificationReceived = false
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -121,6 +121,12 @@ class Message {
             }
             myApplication.scheduledLocalNotifications = notifications
         }
+    }
+    
+    func registerShortcutItem() {
+        let dynamicMessage = createTodaysItem(messages, randomIndexes: &randomMessageIndexes, lastUsedIndex: &lastUsedMessage) as? String
+        let shortcut = UIApplicationShortcutItem(type: "com.Amelia-Boli.AmeliaBoli.displayMessage", localizedTitle: dynamicMessage!)
+        UIApplication.sharedApplication().shortcutItems = [shortcut]
     }
     
     func saveSettings() {

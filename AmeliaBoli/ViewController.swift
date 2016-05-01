@@ -25,10 +25,11 @@ class ViewController: UIViewController {
         
         messageLabel.text = message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
         view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
-    }
+        
+        message.registerShortcutItem()
+           }
     
     override func viewWillAppear(animated: Bool) {
-        print("viewWillAppear")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForNotification), name: UIApplicationDidBecomeActiveNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForPickerDisplay), name: UIApplicationDidBecomeActiveNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadView), name: UIApplicationDidBecomeActiveNotification, object: nil)
@@ -40,13 +41,11 @@ class ViewController: UIViewController {
     
     func checkForNotification() {
         if message.notificationReceived {
-            print(message.randomMessageIndexes)
             messageLabel.text = message.notificationMessage
-            if let usedIndex = message.randomMessageIndexes.indexOf(message.notificationIndex) {
+            if let index = message.notificationIndex, let usedIndex = message.randomMessageIndexes.indexOf(index) {
                 message.randomMessageIndexes.removeAtIndex(usedIndex)
             }
             view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
-            print(message.randomMessageIndexes)
          }
     }
     

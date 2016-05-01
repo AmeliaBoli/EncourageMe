@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmeliaBoli/AppDelegate.swift"
-            timestampString = "483765505.315197"
+            timestampString = "483769662.286285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "application(_:performActionForShortcutItem:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>

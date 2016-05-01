@@ -28,12 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         message.notificationMessage = notification.alertBody!
         message.notificationReceived = true
         if let userInfo = notification.userInfo {
-            message.notificationIndex = userInfo["index"] as! Int
+            message.notificationIndex = userInfo["index"] as? Int
         }
     }
     
     func applicationWillResignActive(application: UIApplication) {
         message.scheduleMessageNotifications()
+        message.registerShortcutItem()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -61,6 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             default: print("Error with Home Screen Quick Actions")
             }
         completionHandler(true)
+        } else if shortcutItem.type == "com.Amelia-Boli.AmeliaBoli.displayMessage" {
+            message.notificationMessage = shortcutItem.localizedTitle
+            message.notificationReceived = true
         }
         completionHandler(false)
         }

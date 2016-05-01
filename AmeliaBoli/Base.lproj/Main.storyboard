@@ -185,7 +185,7 @@ Got This!</string>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9:00 AM" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhX-nr-2tR">
                                                 <rect key="frame" x="46" y="0.0" width="90" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="Kjp-kl-KsD"/>
+                                                    <constraint firstAttribute="width" constant="90" id="qYp-dt-pbN"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -207,7 +207,7 @@ Got This!</string>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5:00 PM" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7oT-XL-rd6">
                                                 <rect key="frame" x="24" y="0.0" width="90" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="MgD-zt-yIV"/>
+                                                    <constraint firstAttribute="width" constant="90" id="xZH-YR-84l"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -231,8 +231,8 @@ Got This!</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lXZ-jD-al2">
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="92"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSb-rl-4ny">
-                                                <rect key="frame" x="20" y="0.0" width="56" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hectic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-N7-oza">
+                                                <rect key="frame" x="23" y="0.0" width="48" height="24"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -243,8 +243,8 @@ Got This!</string>
                                                     <action selector="messageNumberChanged:" destination="9Th-ce-q2m" eventType="valueChanged" id="gUK-NT-BYv"/>
                                                 </connections>
                                             </stepper>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hectic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-N7-oza">
-                                                <rect key="frame" x="23" y="69" width="48" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSb-rl-4ny">
+                                                <rect key="frame" x="20" y="69" width="56" height="24"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -254,8 +254,8 @@ Got This!</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wTO-xH-iPR">
                                         <rect key="frame" x="104" y="0.0" width="94" height="92"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vg-mz-eq5">
-                                                <rect key="frame" x="20" y="0.0" width="56" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Steady" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qe-Is-wog">
+                                                <rect key="frame" x="21" y="0.0" width="52" height="24"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -266,8 +266,8 @@ Got This!</string>
                                                     <action selector="messageNumberChanged:" destination="9Th-ce-q2m" eventType="valueChanged" id="MAN-qZ-I4g"/>
                                                 </connections>
                                             </stepper>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Steady" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qe-Is-wog">
-                                                <rect key="frame" x="21" y="69" width="52" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vg-mz-eq5">
+                                                <rect key="frame" x="20" y="69" width="56" height="24"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -277,8 +277,8 @@ Got This!</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XBZ-s5-khC">
                                         <rect key="frame" x="208" y="0.0" width="94" height="92"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzo-eJ-sfh">
-                                                <rect key="frame" x="20" y="0.0" width="56" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Relaxed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMv-yj-1eG">
+                                                <rect key="frame" x="17" y="0.0" width="61" height="24"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -289,8 +289,8 @@ Got This!</string>
                                                     <action selector="messageNumberChanged:" destination="9Th-ce-q2m" eventType="valueChanged" id="FYg-NT-uPS"/>
                                                 </connections>
                                             </stepper>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Relaxed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMv-yj-1eG">
-                                                <rect key="frame" x="17" y="69" width="61" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzo-eJ-sfh">
+                                                <rect key="frame" x="20" y="69" width="56" height="24"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -309,25 +309,17 @@ Got This!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hTL-La-5AT" firstAttribute="trailing" secondItem="qts-qW-DKU" secondAttribute="trailingMargin" id="3Oq-mX-TKe"/>
-                            <constraint firstItem="HWm-qg-Eey" firstAttribute="top" secondItem="x8d-sb-YF9" secondAttribute="bottom" constant="12" id="8bq-o5-6LN"/>
-                            <constraint firstItem="x8d-sb-YF9" firstAttribute="top" secondItem="lCw-rh-gGI" secondAttribute="bottom" constant="20" id="C8L-5O-lnE"/>
-                            <constraint firstItem="6SP-wQ-CzI" firstAttribute="top" secondItem="ESG-2b-OQO" secondAttribute="bottom" constant="-12" id="Hlc-lD-dWS"/>
-                            <constraint firstItem="ESG-2b-OQO" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="V0D-BM-MJU"/>
-                            <constraint firstItem="ESG-2b-OQO" firstAttribute="top" secondItem="6SP-wQ-CzI" secondAttribute="bottom" constant="12" id="WSy-AE-7Xk"/>
-                            <constraint firstItem="HWm-qg-Eey" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="Y0n-zl-6oq"/>
-                            <constraint firstItem="x8d-sb-YF9" firstAttribute="top" secondItem="hTL-La-5AT" secondAttribute="bottom" constant="20" id="edo-MW-PnT"/>
-                            <constraint firstItem="hTL-La-5AT" firstAttribute="top" secondItem="lCw-rh-gGI" secondAttribute="bottom" constant="8" id="fGW-ZN-SVK"/>
-                            <constraint firstItem="6SP-wQ-CzI" firstAttribute="top" secondItem="HWm-qg-Eey" secondAttribute="bottom" constant="40" id="oOF-WF-im1"/>
-                            <constraint firstItem="6SP-wQ-CzI" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="pQO-wu-usx"/>
-                            <constraint firstItem="x8d-sb-YF9" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="yBE-yW-dDh"/>
+                            <constraint firstItem="6SP-wQ-CzI" firstAttribute="top" secondItem="HWm-qg-Eey" secondAttribute="bottom" constant="40" id="0yR-eV-K80"/>
+                            <constraint firstItem="x8d-sb-YF9" firstAttribute="top" secondItem="hTL-La-5AT" secondAttribute="bottom" constant="20" id="80l-kb-Eva"/>
+                            <constraint firstItem="6SP-wQ-CzI" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="AR3-wP-vw0"/>
+                            <constraint firstItem="hTL-La-5AT" firstAttribute="top" secondItem="lCw-rh-gGI" secondAttribute="bottom" constant="8" id="HUs-vT-0nS"/>
+                            <constraint firstItem="HWm-qg-Eey" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="JSk-a3-Xec"/>
+                            <constraint firstItem="hTL-La-5AT" firstAttribute="trailing" secondItem="qts-qW-DKU" secondAttribute="trailingMargin" id="JeK-Yl-IiQ"/>
+                            <constraint firstItem="x8d-sb-YF9" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="W6V-O9-zoN"/>
+                            <constraint firstItem="ESG-2b-OQO" firstAttribute="top" secondItem="6SP-wQ-CzI" secondAttribute="bottom" constant="12" id="eGk-cy-23L"/>
+                            <constraint firstItem="HWm-qg-Eey" firstAttribute="top" secondItem="x8d-sb-YF9" secondAttribute="bottom" constant="12" id="nEe-aq-1JW"/>
+                            <constraint firstItem="ESG-2b-OQO" firstAttribute="centerX" secondItem="qts-qW-DKU" secondAttribute="centerX" id="qnJ-Xt-YeQ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="C8L-5O-lnE"/>
-                                <exclude reference="Hlc-lD-dWS"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="fromTimeField" destination="dhX-nr-2tR" id="K7M-ai-BM0"/>

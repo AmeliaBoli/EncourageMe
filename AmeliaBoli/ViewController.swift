@@ -27,7 +27,14 @@ class ViewController: UIViewController {
         view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
         
         message.registerShortcutItem()
-           }
+        
+        let foursScreenWidth = CGFloat(320)
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
+        let screenPercentIncrease = screenWidth / foursScreenWidth
+        let newMessageFontSize = messageLabel.font.pointSize * screenPercentIncrease
+        messageLabel.font.fontWithSize(newMessageFontSize)
+    }
     
     override func viewWillAppear(animated: Bool) {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForNotification), name: UIApplicationDidBecomeActiveNotification, object: nil)

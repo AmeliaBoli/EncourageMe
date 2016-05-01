@@ -18,8 +18,13 @@ class Message {
     private init() {
     }
     
-    let messages = messagesFromPlist
-    var randomMessageIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18, 19, 20, 21]
+    let messages = ["If You Are Going Through Hell, Keep Going",
+                    "All Progreses Takes Place Outside The Compfort Zone",
+                    "Your Choices Make a Difference",
+                    "Be Yourself",
+                    "You Are Loved"]
+                    //messagesFromPlist
+    var randomMessageIndexes = [0, 1, 3, 3, 4] //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18, 19, 20, 21]
     var lastUsedMessage = 21
     
     let colors = [UIColor(red:0.859, green:0.384, blue:0, alpha:1), // orange #db6200

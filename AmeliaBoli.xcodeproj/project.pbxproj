@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34DC75271CD6679000BE10E6 /* Arizonia.otf in Resources */ = {isa = PBXBuildFile; fileRef = 34DC75261CD6679000BE10E6 /* Arizonia.otf */; };
 		944F502D1CD2CED800AC0D0B /* Messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 944F502C1CD2CED800AC0D0B /* Messages.plist */; };
 		944F50311CD2CED800AC0D0B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F50301CD2CED800AC0D0B /* Message.swift */; };
 		944F50331CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F50321CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34DC75261CD6679000BE10E6 /* Arizonia.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arizonia.otf; sourceTree = "<group>"; };
 		944F502C1CD2CED800AC0D0B /* Messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Messages.plist; sourceTree = "<group>"; };
 		944F50301CD2CED800AC0D0B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		944F50321CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiRandomTimeGenerator.swift; sourceTree = "<group>"; };
@@ -86,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34DC75231CD6621F00BE10E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				34DC75261CD6679000BE10E6 /* Arizonia.otf */,
+				94AC9B041CC6C31800D0C4B3 /* Assets.xcassets */,
+				94AC9B061CC6C31800D0C4B3 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		9400365F1CD3C1DB002F8D41 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +138,7 @@
 				944F50321CD2CED800AC0D0B /* SemiRandomTimeGenerator.swift */,
 				944F502C1CD2CED800AC0D0B /* Messages.plist */,
 				94AC9B011CC6C31800D0C4B3 /* Main.storyboard */,
-				94AC9B041CC6C31800D0C4B3 /* Assets.xcassets */,
-				94AC9B061CC6C31800D0C4B3 /* LaunchScreen.storyboard */,
+				34DC75231CD6621F00BE10E6 /* Resources */,
 				94AC9B091CC6C31800D0C4B3 /* Info.plist */,
 			);
 			path = AmeliaBoli;
@@ -256,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34DC75271CD6679000BE10E6 /* Arizonia.otf in Resources */,
 				944F502D1CD2CED800AC0D0B /* Messages.plist in Resources */,
 				94AC9B081CC6C31800D0C4B3 /* LaunchScreen.storyboard in Resources */,
 				94AC9B051CC6C31800D0C4B3 /* Assets.xcassets in Resources */,

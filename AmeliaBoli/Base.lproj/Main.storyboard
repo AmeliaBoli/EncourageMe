@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got This!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwH-1Q-39U">
-                                <rect key="frame" x="40" y="267.5" width="520" height="65"/>
+                                <rect key="frame" x="20" y="267.5" width="560" height="65"/>
                                 <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="50"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -51,11 +51,11 @@
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="mwH-1Q-39U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="0TU-i2-ntJ"/>
+                            <constraint firstItem="mwH-1Q-39U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0TU-i2-ntJ"/>
                             <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GZa-NJ-mzc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKj-iQ-ZJU" secondAttribute="bottom" id="No5-SC-8Dp"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="top" secondItem="mwH-1Q-39U" secondAttribute="bottom" constant="20" id="Qg9-CT-wil"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mwH-1Q-39U" secondAttribute="trailing" constant="20" id="VPh-fH-JXO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mwH-1Q-39U" secondAttribute="trailing" id="VPh-fH-JXO"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WWJ-HX-S1s"/>
                             <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZX9-2P-bQk"/>
                             <constraint firstItem="mwH-1Q-39U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="agp-99-cLj"/>
@@ -103,7 +103,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5R-Y8-oYl">
                                 <rect key="frame" x="272" y="280" width="57" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Hectic"/>
+                                <state key="normal" title="Hectic">
+                                    <color key="titleColor" red="0.12156862745098039" green="0.6470588235294118" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="QKz-OE-PRD"/>
                                 </connections>
@@ -111,7 +113,9 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-Q7-b8c">
                                 <rect key="frame" x="269" y="340" width="62" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Steady"/>
+                                <state key="normal" title="Steady">
+                                    <color key="titleColor" red="0.1215686275" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="pEr-if-HdU"/>
                                 </connections>
@@ -119,7 +123,9 @@
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvF-tf-czL">
                                 <rect key="frame" x="264" y="400" width="72" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Relaxed"/>
+                                <state key="normal" title="Relaxed">
+                                    <color key="titleColor" red="0.1215686275" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="qnr-pg-QP4"/>
                                 </connections>
@@ -127,7 +133,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I think today will be" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPW-dD-vmx">
                                 <rect key="frame" x="148" y="212" width="305" height="48"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -161,29 +166,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dv-uK-MyL">
-                                <rect key="frame" x="543" y="28" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                                <rect key="frame" x="543" y="28" width="37" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="donePressed:" destination="9Th-ce-q2m" eventType="touchUpInside" id="QCY-wZ-hrt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I would like to receive messages…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8s-EB-Zs6">
-                                <rect key="frame" x="146" y="78" width="308" height="28"/>
+                                <rect key="frame" x="161" y="78" width="277" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="308" id="Exq-iE-Sjf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Exq-iE-Sjf"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I would like this many messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUT-pO-wSs">
-                                <rect key="frame" x="158" y="188" width="285" height="28"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <rect key="frame" x="172" y="185" width="256.5" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yam-Ll-uSQ">
-                                <rect key="frame" x="168" y="118" width="265" height="30"/>
+                                <rect key="frame" x="168" y="115" width="265" height="30"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nrU-AT-FfM">
                                         <rect key="frame" x="0.0" y="0.0" width="137" height="30"/>
@@ -199,6 +212,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9:00  AM" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQ0-6h-yk8">
                                                 <rect key="frame" x="46" y="0.0" width="91" height="30"/>
+                                                <color key="textColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -218,6 +232,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5:00 PM" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bi4-p7-gzu">
                                                 <rect key="frame" x="24" y="0.0" width="84" height="30"/>
+                                                <color key="textColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -229,19 +244,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hectic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn1-kC-kl5">
-                                <rect key="frame" x="173" y="228" width="50" height="24"/>
+                                <rect key="frame" x="173" y="222" width="50" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9pz-L6-r2o">
-                                <rect key="frame" x="151" y="260" width="94" height="29"/>
+                                <rect key="frame" x="151" y="254" width="94" height="29"/>
+                                <color key="tintColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="messageNumberChanged:" destination="9Th-ce-q2m" eventType="valueChanged" id="8vo-pa-SQF"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajk-22-4v8">
-                                <rect key="frame" x="170" y="297" width="56" height="24"/>
+                                <rect key="frame" x="170" y="291" width="56" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="Y8J-zq-a8r"/>
                                 </constraints>
@@ -250,19 +266,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steady" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfA-iL-6vn">
-                                <rect key="frame" x="272.5" y="228" width="55" height="24"/>
+                                <rect key="frame" x="272" y="222" width="55" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="IsO-it-0e5">
-                                <rect key="frame" x="253" y="260" width="94" height="29"/>
+                                <rect key="frame" x="253" y="254" width="94" height="29"/>
+                                <color key="tintColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="messageNumberChanged:" destination="9Th-ce-q2m" eventType="valueChanged" id="dEc-RL-VCk"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDn-i3-TrF">
-                                <rect key="frame" x="272" y="297" width="56" height="24"/>
+                                <rect key="frame" x="272" y="291" width="56" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="0A6-2B-H0O"/>
                                 </constraints>
@@ -271,19 +288,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relaxed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivg-Rg-b84">
-                                <rect key="frame" x="370" y="228" width="64" height="24"/>
+                                <rect key="frame" x="370" y="222" width="64" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="g9E-CF-QzR">
-                                <rect key="frame" x="355" y="260" width="94" height="29"/>
+                                <rect key="frame" x="355" y="254" width="94" height="29"/>
+                                <color key="tintColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="messageNumberChanged:" destination="9Th-ce-q2m" eventType="valueChanged" id="z3l-7P-fIc"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xck-t0-z1B">
-                                <rect key="frame" x="374" y="297" width="56" height="24"/>
+                                <rect key="frame" x="374" y="291" width="56" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="QqI-KF-lj5"/>
                                 </constraints>

@@ -8,6 +8,8 @@
     <customFonts key="customFonts">
         <mutableArray key="Arizonia.otf">
             <string>Arizonia</string>
+            <string>Arizonia</string>
+            <string>Arizonia</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -152,6 +154,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jei-nQ-YHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928" y="337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Kld-ks-HKJ">
+            <objects>
+                <viewController storyboardIdentifier="firstLaunch" id="jjo-W3-ckh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hiT-Zg-jJt"/>
+                        <viewControllerLayoutGuide type="bottom" id="sjV-86-mdP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mfg-vw-qle">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbR-Eh-Rf9">
+                                <rect key="frame" x="224" y="60" width="152" height="65"/>
+                                <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to get a new message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC0-l8-scL">
+                                <rect key="frame" x="20" y="165" width="560" height="36"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the screen to acess the toolbar for settings and to share the messge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0v-G3-YVl">
+                                <rect key="frame" x="20" y="241" width="560" height="71.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTK-qq-oME">
+                                <rect key="frame" x="249" y="488" width="103" height="52"/>
+                                <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mC0-l8-scL" firstAttribute="leading" secondItem="mfg-vw-qle" secondAttribute="leadingMargin" id="1tq-bq-oOF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mC0-l8-scL" secondAttribute="trailing" id="2FN-kZ-JGf"/>
+                            <constraint firstItem="mC0-l8-scL" firstAttribute="top" secondItem="VbR-Eh-Rf9" secondAttribute="bottom" constant="40" id="8sk-LJ-7gc"/>
+                            <constraint firstItem="QTK-qq-oME" firstAttribute="centerX" secondItem="mfg-vw-qle" secondAttribute="centerX" id="BDm-vQ-fxo"/>
+                            <constraint firstItem="b0v-G3-YVl" firstAttribute="centerX" secondItem="mfg-vw-qle" secondAttribute="centerX" id="KHu-FB-aaD"/>
+                            <constraint firstItem="sjV-86-mdP" firstAttribute="top" secondItem="QTK-qq-oME" secondAttribute="bottom" constant="60" id="KmE-bU-94r"/>
+                            <constraint firstItem="VbR-Eh-Rf9" firstAttribute="top" secondItem="hiT-Zg-jJt" secondAttribute="bottom" constant="40" id="PpD-AX-B8A"/>
+                            <constraint firstItem="b0v-G3-YVl" firstAttribute="leading" secondItem="mfg-vw-qle" secondAttribute="leadingMargin" id="R1K-eM-XeE"/>
+                            <constraint firstItem="VbR-Eh-Rf9" firstAttribute="centerX" secondItem="mfg-vw-qle" secondAttribute="centerX" id="R7U-Yh-aca"/>
+                            <constraint firstItem="VbR-Eh-Rf9" firstAttribute="top" secondItem="b0v-G3-YVl" secondAttribute="bottom" constant="60" id="bbx-ic-8bP"/>
+                            <constraint firstItem="b0v-G3-YVl" firstAttribute="top" secondItem="mC0-l8-scL" secondAttribute="bottom" constant="40" id="e21-wy-fJv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b0v-G3-YVl" secondAttribute="trailing" id="fGn-ga-kHa"/>
+                            <constraint firstItem="mC0-l8-scL" firstAttribute="centerX" secondItem="mfg-vw-qle" secondAttribute="centerX" id="irE-ch-7V1"/>
+                            <constraint firstItem="VbR-Eh-Rf9" firstAttribute="top" secondItem="QTK-qq-oME" secondAttribute="bottom" constant="8" id="slj-Ci-6rX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bbx-ic-8bP"/>
+                                <exclude reference="slj-Ci-6rX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzP-qR-vcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="337"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="iKn-Gs-ia0">

@@ -10,6 +10,8 @@
             <string>Arizonia</string>
             <string>Arizonia</string>
             <string>Arizonia</string>
+            <string>Arizonia</string>
+            <string>Arizonia</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -102,58 +104,124 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5R-Y8-oYl">
-                                <rect key="frame" x="272" y="280" width="57" height="40"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Hectic">
-                                    <color key="titleColor" red="0.12156862745098039" green="0.6470588235294118" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="QKz-OE-PRD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-Q7-b8c">
-                                <rect key="frame" x="269" y="340" width="62" height="40"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Steady">
-                                    <color key="titleColor" red="0.1215686275" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="pEr-if-HdU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvF-tf-czL">
-                                <rect key="frame" x="264" y="400" width="72" height="40"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Relaxed">
-                                    <color key="titleColor" red="0.1215686275" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="qnr-pg-QP4"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I think today will be" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPW-dD-vmx">
-                                <rect key="frame" x="148" y="212" width="305" height="48"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmq-2g-Xza">
+                                <rect key="frame" x="208" y="393" width="183" height="167"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I think today will be" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPW-dD-vmx">
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="29"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5R-Y8-oYl">
+                                        <rect key="frame" x="67" y="39" width="48" height="36"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Hectic">
+                                            <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="QKz-OE-PRD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-Q7-b8c">
+                                        <rect key="frame" x="65" y="85" width="52" height="36"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Steady">
+                                            <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="pEr-if-HdU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvF-tf-czL">
+                                        <rect key="frame" x="61" y="131" width="61" height="36"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Relaxed">
+                                            <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setNotificationFrequency:" destination="x0K-df-ZU3" eventType="touchUpInside" id="qnr-pg-QP4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vjc-Q7-b8c" firstAttribute="top" secondItem="e5R-Y8-oYl" secondAttribute="bottom" constant="10" id="0XA-wS-3QE"/>
+                                    <constraint firstAttribute="bottom" secondItem="jvF-tf-czL" secondAttribute="bottom" id="168-W5-VWN"/>
+                                    <constraint firstAttribute="height" constant="167" id="63e-vO-JKl"/>
+                                    <constraint firstItem="TPW-dD-vmx" firstAttribute="top" secondItem="Bmq-2g-Xza" secondAttribute="top" id="IVc-9M-175"/>
+                                    <constraint firstItem="vjc-Q7-b8c" firstAttribute="centerX" secondItem="Bmq-2g-Xza" secondAttribute="centerX" id="J93-Tj-UGC"/>
+                                    <constraint firstAttribute="width" constant="183" id="L7q-tW-nAp"/>
+                                    <constraint firstItem="jvF-tf-czL" firstAttribute="centerX" secondItem="Bmq-2g-Xza" secondAttribute="centerX" id="Mzv-ff-z67"/>
+                                    <constraint firstItem="e5R-Y8-oYl" firstAttribute="centerX" secondItem="Bmq-2g-Xza" secondAttribute="centerX" id="R0g-w2-gWf"/>
+                                    <constraint firstItem="jvF-tf-czL" firstAttribute="top" secondItem="vjc-Q7-b8c" secondAttribute="bottom" constant="10" id="lE2-Na-xv9"/>
+                                    <constraint firstItem="TPW-dD-vmx" firstAttribute="centerX" secondItem="Bmq-2g-Xza" secondAttribute="centerX" id="rWG-Ga-yTK"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsZ-ff-ZhP">
+                                <rect key="frame" x="20" y="60" width="560" height="264"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDk-vF-b5b">
+                                        <rect key="frame" x="204" y="0.0" width="152" height="65"/>
+                                        <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Swipe left to get a new message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDX-tL-FVV">
+                                        <rect key="frame" x="127" y="85" width="305" height="29"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tap the screen to acess the toolbar for settings and to share the messge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbt-sE-b2y">
+                                        <rect key="frame" x="0.0" y="134" width="560" height="57.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Enjoy!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiP-F8-fkd">
+                                        <rect key="frame" x="228" y="212" width="103" height="52"/>
+                                        <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WDk-vF-b5b" firstAttribute="centerX" secondItem="BsZ-ff-ZhP" secondAttribute="centerX" id="493-71-QvW"/>
+                                    <constraint firstItem="AiP-F8-fkd" firstAttribute="centerX" secondItem="BsZ-ff-ZhP" secondAttribute="centerX" id="AYZ-8K-PLp"/>
+                                    <constraint firstItem="FDX-tL-FVV" firstAttribute="top" secondItem="WDk-vF-b5b" secondAttribute="bottom" constant="20" id="Huf-IY-Qgb"/>
+                                    <constraint firstItem="AiP-F8-fkd" firstAttribute="top" secondItem="sbt-sE-b2y" secondAttribute="bottom" constant="20" id="Nds-hT-etV"/>
+                                    <constraint firstAttribute="width" constant="560" id="X9e-Pf-GxK"/>
+                                    <constraint firstItem="sbt-sE-b2y" firstAttribute="centerX" secondItem="BsZ-ff-ZhP" secondAttribute="centerX" id="cps-gT-vGp"/>
+                                    <constraint firstAttribute="trailing" secondItem="sbt-sE-b2y" secondAttribute="trailing" id="hMq-R3-fdG"/>
+                                    <constraint firstItem="AiP-F8-fkd" firstAttribute="top" secondItem="sbt-sE-b2y" secondAttribute="bottom" constant="20" id="jdv-TM-2Eo"/>
+                                    <constraint firstAttribute="height" constant="264" id="p96-Ya-Ptd"/>
+                                    <constraint firstItem="WDk-vF-b5b" firstAttribute="top" secondItem="BsZ-ff-ZhP" secondAttribute="top" id="t4B-dO-h1f"/>
+                                    <constraint firstItem="sbt-sE-b2y" firstAttribute="leading" secondItem="BsZ-ff-ZhP" secondAttribute="leading" id="uln-1j-nSZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="AiP-F8-fkd" secondAttribute="bottom" id="xOV-As-euM"/>
+                                    <constraint firstItem="FDX-tL-FVV" firstAttribute="centerX" secondItem="BsZ-ff-ZhP" secondAttribute="centerX" id="xff-Bn-8b9"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jdv-TM-2Eo"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.4039215686" green="0.0" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="e5R-Y8-oYl" firstAttribute="centerY" secondItem="8YF-4o-UGz" secondAttribute="centerY" id="8Yj-MJ-CLe"/>
-                            <constraint firstItem="vjc-Q7-b8c" firstAttribute="top" secondItem="e5R-Y8-oYl" secondAttribute="bottom" constant="20" id="Dcz-ef-5bj"/>
-                            <constraint firstItem="TPW-dD-vmx" firstAttribute="centerX" secondItem="8YF-4o-UGz" secondAttribute="centerX" id="HTN-Sd-5a0"/>
-                            <constraint firstItem="jvF-tf-czL" firstAttribute="top" secondItem="vjc-Q7-b8c" secondAttribute="bottom" constant="20" id="N2z-eQ-gte"/>
-                            <constraint firstItem="e5R-Y8-oYl" firstAttribute="top" secondItem="TPW-dD-vmx" secondAttribute="bottom" constant="20" id="poI-Ej-E2H"/>
-                            <constraint firstItem="e5R-Y8-oYl" firstAttribute="centerX" secondItem="8YF-4o-UGz" secondAttribute="centerX" id="uZT-MD-c7V"/>
-                            <constraint firstItem="vjc-Q7-b8c" firstAttribute="centerX" secondItem="8YF-4o-UGz" secondAttribute="centerX" id="xhD-OJ-gcW"/>
-                            <constraint firstItem="jvF-tf-czL" firstAttribute="centerX" secondItem="8YF-4o-UGz" secondAttribute="centerX" id="xp2-sz-l7g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BsZ-ff-ZhP" secondAttribute="trailing" id="AIx-iz-01L"/>
+                            <constraint firstItem="Bmq-2g-Xza" firstAttribute="centerX" secondItem="8YF-4o-UGz" secondAttribute="centerX" id="QCX-TD-lOE"/>
+                            <constraint firstItem="BsZ-ff-ZhP" firstAttribute="leading" secondItem="8YF-4o-UGz" secondAttribute="leadingMargin" id="Soj-Yx-VSz"/>
+                            <constraint firstItem="PEd-Z3-58v" firstAttribute="top" secondItem="Bmq-2g-Xza" secondAttribute="bottom" constant="40" id="X1a-Rp-vES"/>
+                            <constraint firstItem="BsZ-ff-ZhP" firstAttribute="top" secondItem="Xhf-Oh-DAq" secondAttribute="bottom" constant="40" id="zws-L1-kPq"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jei-nQ-YHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="337"/>
+            <point key="canvasLocation" x="953" y="283"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="Kld-ks-HKJ">

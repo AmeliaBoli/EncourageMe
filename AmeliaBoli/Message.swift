@@ -112,22 +112,13 @@ class Message {
             let randomTimes = getSemiRandomTimes()
             var notifications = [UILocalNotification]()
             
-//            for (time, index) in zip(randomTimes, randomMessageIndexes) {
+            for (time, index) in zip(randomTimes, randomMessageIndexes) {
                 let notification = UILocalNotification()
-                notification.alertBody = "test" //messages[index]
-                
-                //TEST
-                let calendar = NSCalendar.currentCalendar()
-                let dayComponent = NSDateComponents()
-                dayComponent.second = 10
-                let dayToSchedule = calendar.dateByAddingComponents(dayComponent, toDate: NSDate(), options: [])!
-                notification.fireDate = dayToSchedule
-                //TEST
-                
-                //notification.fireDate = time
-                notification.userInfo = ["index": 0] //["index": index]
+                notification.alertBody = messages[index]
+                notification.fireDate = time
+                notification.userInfo = ["index": index]
                 notifications.append(notification)
-        //}
+            }
             myApplication.scheduledLocalNotifications = notifications
         }
     }

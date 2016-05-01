@@ -29,13 +29,9 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         print("viewWillAppear")
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForNotification), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForPickerDisplay), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadView), name: UIApplicationWillEnterForegroundNotification, object: nil)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        checkForPickerDisplay()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForNotification), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.checkForPickerDisplay), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadView), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -49,6 +45,7 @@ class ViewController: UIViewController {
             if let usedIndex = message.randomMessageIndexes.indexOf(message.notificationIndex) {
                 message.randomMessageIndexes.removeAtIndex(usedIndex)
             }
+            view.backgroundColor = message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
             print(message.randomMessageIndexes)
          }
     }

@@ -10,11 +10,26 @@ import UIKit
 
 class NotificationFrequencyViewController: UIViewController {
     
+    @IBOutlet weak var pickFrequencyView: UIView!
+    @IBOutlet weak var welcomeView: UIView!
+    
     let userSettings = UserSettings.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarHidden = true
+        
+        let lastLaunched = NSUserDefaults.standardUserDefaults().objectForKey("lastLaunched")
+        if (lastLaunched as? NSDate) != nil {
+            welcomeView.hidden = true
+            let centerX = NSLayoutConstraint(item: pickFrequencyView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+            let centerY = NSLayoutConstraint(item: pickFrequencyView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+            let height = NSLayoutConstraint(item: pickFrequencyView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 22)
+            pickFrequencyView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addConstraints([centerX, centerY, height])
+        } else {
+            NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
+        }
     }
     
     @IBAction func setNotificationFrequency(sender: UIButton) {

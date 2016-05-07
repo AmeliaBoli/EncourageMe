@@ -15,12 +15,6 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func dismissView(sender: UITapGestureRecognizer) {
-        dismissViewControllerAnimated(true, completion: nil) //{
-//            let controller: NotificationFrequencyViewController
-//            controller = self.storyboard?.instantiateViewControllerWithIdentifier("notificationFrequency") as! NotificationFrequencyViewController
-//            self.presentViewController(controller, animated: true, completion: nil)
-//            NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastLaunched")
-//            self.performSegueWithIdentifier("showFrequencyController", sender: self)
-//        })
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

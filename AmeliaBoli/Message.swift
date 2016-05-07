@@ -18,21 +18,15 @@ class Message {
     private init() {
     }
     
-    let messages = ["If You Are Going Through Hell, Keep Going",
-                    "All Progreses Takes Place Outside The Compfort Zone",
-                    "Your Choices Make a Difference",
-                    "Be Yourself",
-                    "You Are Loved"]
-                    //messagesFromPlist
-    var randomMessageIndexes = [0, 1, 3, 3, 4] //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18, 19, 20, 21]
-    var lastUsedMessage = 21
+    let messages = messagesFromPlist
+    var randomMessageIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+    var lastUsedMessage = 33
     
     let colors = [UIColor(red:0.859, green:0.384, blue:0, alpha:1), // orange #db6200
         UIColor(red:0.404, green:0, blue:0.749, alpha:1), // purple #6700bf
         UIColor(red:0.122, green:0.647, blue:0, alpha:1), // green (bluer) #1fa500
         UIColor(red:0.655, green:0, blue:0.714, alpha:1), // violet #a700b6
         UIColor(red:0.706, green:0, blue:0, alpha:1), // red #b40000
-        //UIColor(red:0.886, green:0.812, blue:0, alpha:1), // yellow (gold) #e2cf00
         UIColor(red:0.765, green:0, blue:0.467, alpha:1), // magenta #c30077
         UIColor(red:0.522, green:0.792, blue:0, alpha:1), // green (yellower) #c30077
         UIColor(red:0, green:0.243, blue:0.686, alpha:1)] // blue #003eaf]

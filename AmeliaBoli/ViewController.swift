@@ -71,13 +71,9 @@ class ViewController: UIViewController {
                     self.presentViewController(controller, animated: true, completion: nil)
                 }
             } else {
-                let frequencyController: NotificationFrequencyViewController
-                frequencyController = storyboard?.instantiateViewControllerWithIdentifier("notificationFrequency") as! NotificationFrequencyViewController
-                self.presentViewController(frequencyController, animated: true, completion: nil) // {
-//                    let onboardingController: OnboardingViewController
-//                    onboardingController = self.storyboard?.instantiateViewControllerWithIdentifier("firstLaunch") as! OnboardingViewController
-//                    self.presentViewController(onboardingController, animated: true, completion: nil)
-//                })
+                let controller: NotificationFrequencyViewController
+                controller = storyboard?.instantiateViewControllerWithIdentifier("notificationFrequency") as! NotificationFrequencyViewController
+                self.presentViewController(controller, animated: true, completion: nil)
             }
         }
     }

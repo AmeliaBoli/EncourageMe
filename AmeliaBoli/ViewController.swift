@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         if !toolbarIsHidden {
             toolbar.hidden = true
         }
-        let messageToShare = MessageToShare(message: messageLabel.text!, backgroundColor: view.backgroundColor!, messageToShare: generateMessageToShare())
+        let messageToShare = MessageToShare(message: messageLabel.text!, backgroundColor:  view.backgroundColor!, messageToShare: generateMessageToShare())
         if !toolbarIsHidden {
             toolbar.hidden = false
 

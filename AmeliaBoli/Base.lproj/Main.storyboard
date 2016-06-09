@@ -12,6 +12,7 @@
             <string>Arizonia</string>
             <string>Arizonia</string>
             <string>Arizonia</string>
+            <string>Arizonia</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -27,23 +28,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKI-i6-QW3">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKI-i6-QW3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6l-FK-f8e">
-                                        <rect key="frame" x="99" y="54" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got This!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6l-FK-f8e">
+                                        <rect key="frame" x="20" y="268" width="560" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="IU8-mL-YL8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="50"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="IU8-mL-YL8"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="W6l-FK-f8e" secondAttribute="trailing" constant="20" id="FGI-TH-fkB"/>
+                                    <constraint firstItem="W6l-FK-f8e" firstAttribute="centerX" secondItem="bKI-i6-QW3" secondAttribute="centerX" id="TBa-x2-pCI"/>
+                                    <constraint firstItem="W6l-FK-f8e" firstAttribute="centerY" secondItem="bKI-i6-QW3" secondAttribute="centerY" id="Zfd-vu-CEa"/>
+                                    <constraint firstItem="W6l-FK-f8e" firstAttribute="leading" secondItem="bKI-i6-QW3" secondAttribute="leading" constant="20" id="pG9-W1-rhD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="TBa-x2-pCI"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-Hi-beO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got This!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwH-1Q-39U">
-                                        <rect key="frame" x="159" y="268" width="283" height="65"/>
+                                        <rect key="frame" x="20" y="268" width="560" height="65"/>
                                         <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="50"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -51,9 +71,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8Sd-Hi-beO" secondAttribute="centerY" id="IEN-1y-hYT"/>
-                                    <constraint firstItem="mwH-1Q-39U" firstAttribute="centerX" secondItem="8Sd-Hi-beO" secondAttribute="centerX" id="Yqr-Cw-gF4"/>
+                                    <constraint firstItem="mwH-1Q-39U" firstAttribute="centerX" secondItem="8Sd-Hi-beO" secondAttribute="centerX" id="Exx-pG-gSf"/>
+                                    <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8Sd-Hi-beO" secondAttribute="centerY" identifier="messageCenter" id="XAD-Cc-l0B"/>
+                                    <constraint firstItem="mwH-1Q-39U" firstAttribute="leading" secondItem="8Sd-Hi-beO" secondAttribute="leading" constant="20" identifier="messageLeading" id="a3U-t6-yjX"/>
+                                    <constraint firstAttribute="trailing" secondItem="mwH-1Q-39U" secondAttribute="trailing" constant="20" identifier="messageTrailing" id="pxQ-cY-Uee"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Exx-pG-gSf"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-iQ-ZJU">
                                 <rect key="frame" x="0.0" y="600" width="600" height="44"/>
@@ -76,12 +103,16 @@
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="bKI-i6-QW3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BxU-QW-nSY"/>
+                            <constraint firstItem="bKI-i6-QW3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Ja7-UQ-r8R"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Jh0-ew-hlC"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Kes-yV-Oht"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKj-iQ-ZJU" secondAttribute="bottom" id="No5-SC-8Dp"/>
                             <constraint firstAttribute="bottomMargin" secondItem="8Sd-Hi-beO" secondAttribute="bottom" id="UrD-v6-DO3"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WWJ-HX-S1s"/>
-                            <constraint firstAttribute="trailing" secondItem="8Sd-Hi-beO" secondAttribute="trailing" id="Zme-Nq-dpC"/>
+                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Zme-Nq-dpC"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="bKI-i6-QW3" secondAttribute="bottom" id="bIO-23-6Wg"/>
+                            <constraint firstAttribute="trailing" secondItem="bKI-i6-QW3" secondAttribute="trailing" id="bQ7-Cl-CRV"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="top" secondItem="8Sd-Hi-beO" secondAttribute="bottom" id="cDW-jU-GKa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cKj-iQ-ZJU" secondAttribute="trailing" constant="-20" id="eBQ-Zm-XBL"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zgB-Tb-eX4"/>
@@ -94,14 +125,26 @@
                         </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="qEy-hN-WbF" appends="YES" id="eDm-Ix-lEr"/>
+                            <outletCollection property="gestureRecognizers" destination="fGA-Fn-vQ6" appends="YES" id="mdR-BA-7sP"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="messageLabel" destination="mwH-1Q-39U" id="7rd-Wc-fyW"/>
+                        <outlet property="messageLabelInBack" destination="W6l-FK-f8e" id="eCQ-Af-6zj"/>
+                        <outlet property="messageLabelInFront" destination="mwH-1Q-39U" id="pDl-ZV-BuH"/>
+                        <outlet property="panGesture" destination="fGA-Fn-vQ6" id="1xr-vu-Npd"/>
                         <outlet property="toolbar" destination="cKj-iQ-ZJU" id="nb6-tK-87V"/>
+                        <outlet property="viewInBack" destination="bKI-i6-QW3" id="T3K-kI-oRb"/>
+                        <outlet property="viewInFront" destination="8Sd-Hi-beO" id="t12-uS-aKy"/>
+                        <outlet property="viewInFrontLeadingConstraintToSuperview" destination="Kes-yV-Oht" id="NWN-VJ-lpP"/>
+                        <outlet property="viewInFrontTrailingConstraintToSuperView" destination="Zme-Nq-dpC" id="ptN-Lf-aer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="fGA-Fn-vQ6">
+                    <connections>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="h3z-GZ-nhO"/>
+                    </connections>
+                </panGestureRecognizer>
                 <tapGestureRecognizer id="qEy-hN-WbF">
                     <connections>
                         <action selector="manageToolbar:" destination="BYZ-38-t0r" id="bHG-Iv-ewK"/>

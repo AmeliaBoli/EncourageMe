@@ -103,6 +103,8 @@
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="width" secondItem="bKI-i6-QW3" secondAttribute="width" id="2Ey-wp-UFe"/>
+                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="leading" secondItem="bKI-i6-QW3" secondAttribute="leading" id="3u5-Pd-Kc5"/>
                             <constraint firstItem="bKI-i6-QW3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BxU-QW-nSY"/>
                             <constraint firstItem="bKI-i6-QW3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Ja7-UQ-r8R"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Jh0-ew-hlC"/>
@@ -110,15 +112,21 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKj-iQ-ZJU" secondAttribute="bottom" id="No5-SC-8Dp"/>
                             <constraint firstAttribute="bottomMargin" secondItem="8Sd-Hi-beO" secondAttribute="bottom" id="UrD-v6-DO3"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WWJ-HX-S1s"/>
+                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="bottom" secondItem="bKI-i6-QW3" secondAttribute="bottom" id="Zkx-ik-DkH"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Zme-Nq-dpC"/>
                             <constraint firstAttribute="bottomMargin" secondItem="bKI-i6-QW3" secondAttribute="bottom" id="bIO-23-6Wg"/>
                             <constraint firstAttribute="trailing" secondItem="bKI-i6-QW3" secondAttribute="trailing" id="bQ7-Cl-CRV"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="top" secondItem="8Sd-Hi-beO" secondAttribute="bottom" id="cDW-jU-GKa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cKj-iQ-ZJU" secondAttribute="trailing" constant="-20" id="eBQ-Zm-XBL"/>
+                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="bKI-i6-QW3" secondAttribute="top" id="tV8-d8-VbX"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zgB-Tb-eX4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Jh0-ew-hlC"/>
+                                <exclude reference="Kes-yV-Oht"/>
+                                <exclude reference="UrD-v6-DO3"/>
+                                <exclude reference="Zme-Nq-dpC"/>
                                 <exclude reference="zgB-Tb-eX4"/>
                                 <exclude reference="cDW-jU-GKa"/>
                             </mask>

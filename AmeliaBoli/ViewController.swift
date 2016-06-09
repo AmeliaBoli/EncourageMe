@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
     
     var viewOffScreen = UIView()
-    //var testView = UIView()
     
     var indexDisplayed = 2
     let totalRotation = CGFloat(M_PI / 12)
@@ -49,10 +48,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        //let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.reloadView))
-        //swipeLeft.direction = .Left
-        //self.view.addGestureRecognizer(swipeLeft)
-        
         messageLabelInFront.text = messages[0] //message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
         viewInFront.backgroundColor = colors[0] //message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
         messageLabelInBack.text = messages[1]
@@ -71,11 +66,6 @@ class ViewController: UIViewController {
         
         viewInFront.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
         viewInBack.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
-        
-//        testView = UIView(frame: CGRect(x: 100, y: 200, width: 200, height: 200))
-//        testView.backgroundColor = UIColor.redColor()
-//        self.view.addSubview(testView)
-//        self.view.sendSubviewToBack(testView)
     }
     
     override func viewDidLayoutSubviews() {
@@ -171,7 +161,7 @@ class ViewController: UIViewController {
 
         
 //         This code was working until I started moving views around. I'm commenting it out to try messing with constraints.
-        let rightBoundingConstraint = NSLayoutConstraint(item: viewInFront, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1, constant: -100)
+        let rightBoundingConstraint = NSLayoutConstraint(item: viewInFront, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1, constant: 100)
         
         UIView.animateWithDuration(1, animations: {
             //self.viewInFront.transform = CGAffineTransformMakeRotation(-1.1)
@@ -214,47 +204,6 @@ class ViewController: UIViewController {
         
         viewInBack.backgroundColor = colors[indexDisplayed]
         messageLabelInBack.text = messages[indexDisplayed]
-        
-        //        let newView = UIView(frame: CGRect(x: 100, y: 200, width: 200, height: 200))
-//        newView.backgroundColor = UIColor.blueColor()
-
-        //viewOffScreen.removeFromSuperview()
-        //viewOffScreen = viewInFront
-        //self.view.addSubview(viewOffScreen)
-        
-        //viewInFront = viewInBack
-        
-//        viewInBack = createMessageView() //testView //UIView(frame: CGRect(x: 100, y: 200, width: 200, height: 200))
-        //viewInBack.backgroundColor = UIColor.blueColor()
-        //view.setNeedsLayout()
-    }
-    
-    func createMessageView() -> UIView {
-        if indexDisplayed == messages.count - 1 {
-            indexDisplayed = 0
-        } else {
-            indexDisplayed += 1
-        }
-        
-        let newLabel: UILabel = {
-            $0.text = messages[indexDisplayed]
-            // FIXME:
-            //$0.lines = 0
-            //$0.font
-            return $0
-        }(UILabel())
-        
-        let newView: UIView = {
-            $0.backgroundColor = colors[indexDisplayed]
-            $0.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
-            $0.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
-            $0.addSubview(newLabel)
-            return $0
-        }(UIView())
-        
-        //let subviewsCount = view.subviews.count
-        view.insertSubview(newView, belowSubview: viewInBack)
-        return newView
     }
     
     @IBAction func presentShareController(sender: UIBarButtonItem) {

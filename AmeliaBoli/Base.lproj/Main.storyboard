@@ -81,6 +81,9 @@
                                         <exclude reference="Exx-pG-gSf"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Mt2-OT-T0X" appends="YES" id="Buo-Er-eSn"/>
+                                </connections>
                             </view>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-iQ-ZJU">
                                 <rect key="frame" x="0.0" y="600" width="600" height="44"/>
@@ -107,57 +110,40 @@
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="leading" secondItem="bKI-i6-QW3" secondAttribute="leading" id="3u5-Pd-Kc5"/>
                             <constraint firstItem="bKI-i6-QW3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BxU-QW-nSY"/>
                             <constraint firstItem="bKI-i6-QW3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Ja7-UQ-r8R"/>
-                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Jh0-ew-hlC"/>
-                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Kes-yV-Oht"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cKj-iQ-ZJU" secondAttribute="bottom" id="No5-SC-8Dp"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="8Sd-Hi-beO" secondAttribute="bottom" id="UrD-v6-DO3"/>
                             <constraint firstItem="cKj-iQ-ZJU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WWJ-HX-S1s"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="bottom" secondItem="bKI-i6-QW3" secondAttribute="bottom" id="Zkx-ik-DkH"/>
-                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Zme-Nq-dpC"/>
                             <constraint firstAttribute="bottomMargin" secondItem="bKI-i6-QW3" secondAttribute="bottom" id="bIO-23-6Wg"/>
                             <constraint firstAttribute="trailing" secondItem="bKI-i6-QW3" secondAttribute="trailing" id="bQ7-Cl-CRV"/>
-                            <constraint firstItem="cKj-iQ-ZJU" firstAttribute="top" secondItem="8Sd-Hi-beO" secondAttribute="bottom" id="cDW-jU-GKa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cKj-iQ-ZJU" secondAttribute="trailing" constant="-20" id="eBQ-Zm-XBL"/>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="bKI-i6-QW3" secondAttribute="top" id="tV8-d8-VbX"/>
-                            <constraint firstItem="8Sd-Hi-beO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zgB-Tb-eX4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Jh0-ew-hlC"/>
-                                <exclude reference="Kes-yV-Oht"/>
-                                <exclude reference="UrD-v6-DO3"/>
-                                <exclude reference="Zme-Nq-dpC"/>
-                                <exclude reference="zgB-Tb-eX4"/>
-                                <exclude reference="cDW-jU-GKa"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="qEy-hN-WbF" appends="YES" id="eDm-Ix-lEr"/>
-                            <outletCollection property="gestureRecognizers" destination="fGA-Fn-vQ6" appends="YES" id="mdR-BA-7sP"/>
+                            <outletCollection property="gestureRecognizers" destination="BA8-zW-ZPn" appends="YES" id="dag-Ns-iea"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="messageLabelInBack" destination="W6l-FK-f8e" id="eCQ-Af-6zj"/>
                         <outlet property="messageLabelInFront" destination="mwH-1Q-39U" id="pDl-ZV-BuH"/>
-                        <outlet property="panGesture" destination="fGA-Fn-vQ6" id="1xr-vu-Npd"/>
                         <outlet property="toolbar" destination="cKj-iQ-ZJU" id="nb6-tK-87V"/>
                         <outlet property="viewInBack" destination="bKI-i6-QW3" id="T3K-kI-oRb"/>
                         <outlet property="viewInFront" destination="8Sd-Hi-beO" id="t12-uS-aKy"/>
-                        <outlet property="viewInFrontLeadingConstraintToSuperview" destination="Kes-yV-Oht" id="NWN-VJ-lpP"/>
-                        <outlet property="viewInFrontTrailingConstraintToSuperView" destination="Zme-Nq-dpC" id="ptN-Lf-aer"/>
+                        <outlet property="viewInFrontLeadingConstraint" destination="3u5-Pd-Kc5" id="FzC-da-d8W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="fGA-Fn-vQ6">
-                    <connections>
-                        <action selector="handlePan:" destination="BYZ-38-t0r" id="h3z-GZ-nhO"/>
-                    </connections>
-                </panGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="BA8-zW-ZPn"/>
                 <tapGestureRecognizer id="qEy-hN-WbF">
                     <connections>
                         <action selector="manageToolbar:" destination="BYZ-38-t0r" id="bHG-Iv-ewK"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Mt2-OT-T0X">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="T5Q-zQ-4gX"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="337"/>
         </scene>

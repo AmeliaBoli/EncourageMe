@@ -16,14 +16,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewInFront: UIView!
     @IBOutlet weak var messageLabelInFront: UILabel!
     
-    @IBOutlet weak var viewInFrontLeadingConstraintToSuperview: NSLayoutConstraint!
-    @IBOutlet weak var viewInFrontTrailingConstraintToSuperView: NSLayoutConstraint!
+    @IBOutlet weak var viewInFrontLeadingConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    @IBOutlet weak var swipeLeftGesture: UISwipeGestureRecognizer!
     
     var viewOffScreen = UIView()
+    var frameAfterRotation = CGRect()
+    var previousColor = UIColor()
     
-    var indexDisplayed = 2
+    var index = 0
     let totalRotation = CGFloat(M_PI / 12)
     var totalRotated = CGFloat(0)
     var totalMoved = CGFloat(0)
@@ -48,10 +49,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        messageLabelInFront.text = messages[0] //message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
-        viewInFront.backgroundColor = colors[0] //message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
-        messageLabelInBack.text = messages[1]
-        viewInBack.backgroundColor = colors[1]
+        let inFrontViewDetails = retrieveNextViewDetails()
+        messageLabelInFront.text = inFrontViewDetails.message //messages[0] //message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
+        viewInFront.backgroundColor = inFrontViewDetails.backgroundColor //colors[0] //message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
+        
+        let inBackViewDetails = retrieveNextViewDetails()
+        messageLabelInBack.text = inBackViewDetails.message //messages[1]
+        viewInBack.backgroundColor = inBackViewDetails.backgroundColor //colors[1]
         
         message.registerShortcutItem()
         
@@ -64,13 +68,13 @@ class ViewController: UIViewController {
         messageLabelInFront.font.fontWithSize(newMessageFontSize)
         messageLabelInBack.font.fontWithSize(newMessageFontSize)
         
-        viewInFront.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
-        viewInBack.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
+//        viewInFront.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
+//        viewInBack.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
     }
     
     override func viewDidLayoutSubviews() {
-        viewInFront.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
-        viewInBack.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
+//        viewInFront.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
+//        viewInBack.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -114,29 +118,81 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func handlePan(recognizer: UIPanGestureRecognizer) {
+    @IBAction func swipeLeft(recognizer: UISwipeGestureRecognizer) {
         
-        let screenWidth = screenBounds.width
-        let percentMovedBeforeRemoving = CGFloat(0.8)
-        let totalMovedBeforeRemoving = (screenWidth / 2) * percentMovedBeforeRemoving
+        let rotationTransform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
+        frameAfterRotation = CGRectApplyAffineTransform(self.viewInFront.frame, rotationTransform)
+        view.layoutIfNeeded()
         
-        let translation = recognizer.translationInView(view)
+        UIView.animateWithDuration(0.6, delay: 0, options: [.CurveEaseIn, .LayoutSubviews], animations: {
+            self.viewInFrontLeadingConstraint.constant = -(self.frameAfterRotation.width - (self.frameAfterRotation.width - self.viewInFront.frame.width) / 2)
+            self.viewInFront.transform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
+            self.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished {
+                    print(self.viewInFront.frame)
+                    self.progressContent()
+                }
+        })
+
         
         
-        if recognizer.state == .Changed && abs(totalMoved) >= totalMovedBeforeRemoving {
-            panGesture.enabled = false
-            finishAnimatingOffScreen()
-            
-        } else {
-            let percentToRotate = translation.x / (screenBounds.width / 2)
-            
-            totalRotated += CGFloat(percentToRotate * totalRotation)
-            totalMoved += translation.x
-            
-            //viewInFront.transform = CGAffineTransformMakeRotation(totalRotated)
-            viewInFront.center = CGPoint(x: (viewInFront.center.x + translation.x), y: viewInFront.center.y)
+//        let screenWidth = screenBounds.width
+//        let percentMovedBeforeRemoving = CGFloat(0.8)
+//        let totalMovedBeforeRemoving = (screenWidth / 2) * percentMovedBeforeRemoving
+//        
+//        //let translation = recognizer.translationInView(view)
+//        
+//        
+//        if recognizer.state == .Changed && abs(totalMoved) >= totalMovedBeforeRemoving {
+//            swipeLeftGesture.enabled = false
+//            finishAnimatingOffScreen()
+//            
+//        } else {
+//            //let percentToRotate = translation.x / (screenBounds.width / 2)
+//            
+//            //totalRotated += CGFloat(percentToRotate * totalRotation)
+//            //totalMoved += translation.x
+//            
+//            //viewInFront.transform = CGAffineTransformMakeRotation(totalRotated)
+//            //viewInFront.center = CGPoint(x: (viewInFront.center.x + translation.x), y: viewInFront.center.y)
+//        }
+//        //recognizer.setTranslation(CGPointZero, inView: view)
+    }
+
+    func retrieveNextViewDetails() -> (message: String, backgroundColor: UIColor){
+        if index == messages.count {
+            //make new messages and background colors array
+            index = 0
         }
-        recognizer.setTranslation(CGPointZero, inView: view)
+        
+        let newViewDetails = (message: messages[index], backgroundColor: colors[index])
+        index += 1
+        
+        return newViewDetails
+    }
+    
+    func progressContent() {
+        viewInFront.hidden = true
+        //previousColor = viewInFront.backgroundColor!
+        messageLabelInFront.text = messageLabelInBack.text!
+        viewInFront.backgroundColor = viewInBack.backgroundColor
+        
+        view.layoutIfNeeded()
+        
+        UIView.animateWithDuration(0, delay: 0, options: .CurveEaseOut, animations: {
+            self.viewInFrontLeadingConstraint.constant = 0
+            self.viewInFront.transform = CGAffineTransformMakeRotation(0)
+            self.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished {
+                    self.viewInFront.hidden = false
+                    let nextViewDetails = self.retrieveNextViewDetails()
+                    self.messageLabelInBack.text = nextViewDetails.message
+                    self.viewInBack.backgroundColor = nextViewDetails.backgroundColor
+                }
+        })
+        
     }
 
     func finishAnimatingOffScreen() {
@@ -147,26 +203,13 @@ class ViewController: UIViewController {
         let xToMove: CGFloat = -(finalViewFrame.width / 2 + self.viewInFront.center.x)
         
         
-//        UIView.animateWithDuration(1, animations: {
-//            self.viewInFront.transform = CGAffineTransformMakeRotation(-1.1)
-//            self.viewInFrontLeadingConstraintToSuperview.constant = -finalViewFrame.width
-//            self.viewInFrontTrailingConstraintToSuperView.constant = -self.screenBounds.width
-//            self.view.layoutIfNeeded()
-//                        }, completion: { finished in
-//                            if finished {
-//                                self.moveViews()
-//                                self.panGesture.enabled = true
-//                            }
-//                    })
-
-        
 //         This code was working until I started moving views around. I'm commenting it out to try messing with constraints.
         let rightBoundingConstraint = NSLayoutConstraint(item: viewInFront, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1, constant: 100)
         
         UIView.animateWithDuration(1, animations: {
             //self.viewInFront.transform = CGAffineTransformMakeRotation(-1.1)
-            self.view.removeConstraint(self.viewInFrontTrailingConstraintToSuperView) //constant = -self.screenBounds.width
-            self.view.removeConstraint(self.viewInFrontLeadingConstraintToSuperview)
+            //self.view.removeConstraint(self.viewInFrontTrailingConstraint) //constant = -self.screenBounds.width
+            self.view.removeConstraint(self.viewInFrontLeadingConstraint)
                 self.view.addConstraint(rightBoundingConstraint)
                 self.view.layoutIfNeeded()
             
@@ -175,36 +218,36 @@ class ViewController: UIViewController {
             }, completion: { finished in
                 if finished {
                     //self.moveViews()
-                    self.panGesture.enabled = true
+                    self.swipeLeftGesture.enabled = true
                     self.totalRotated = 0
                     self.totalMoved = 0
                 }
         })
         
-        self.viewInFrontTrailingConstraintToSuperView = rightBoundingConstraint
+        //self.viewInFrontTrailingConstraintToSuperView = rightBoundingConstraint
 
     }
     
-    func moveViews() {
-        viewInFront.hidden = true
-        //viewInFront.center = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2)
-        //viewInFront.transform = CGAffineTransformMakeRotation(-totalRotated + 1.1)
-        viewInFront.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
-        
-        if indexDisplayed == messages.count - 1 {
-            indexDisplayed = 0
-        } else {
-            indexDisplayed += 1
-        }
-
-        viewInFront.backgroundColor = viewInBack.backgroundColor
-        messageLabelInFront.text = messageLabelInBack.text
-        
-        viewInFront.hidden = false
-        
-        viewInBack.backgroundColor = colors[indexDisplayed]
-        messageLabelInBack.text = messages[indexDisplayed]
-    }
+//    func moveViews() {
+//        viewInFront.hidden = true
+//        //viewInFront.center = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2)
+//        //viewInFront.transform = CGAffineTransformMakeRotation(-totalRotated + 1.1)
+//        viewInFront.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
+//        
+//        if indexDisplayed == messages.count - 1 {
+//            indexDisplayed = 0
+//        } else {
+//            indexDisplayed += 1
+//        }
+//
+//        viewInFront.backgroundColor = viewInBack.backgroundColor
+//        messageLabelInFront.text = messageLabelInBack.text
+//        
+//        viewInFront.hidden = false
+//        
+//        viewInBack.backgroundColor = colors[indexDisplayed]
+//        messageLabelInBack.text = messages[indexDisplayed]
+//    }
     
     @IBAction func presentShareController(sender: UIBarButtonItem) {
         let toolbarIsHidden = toolbar.hidden

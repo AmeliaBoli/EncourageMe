@@ -20,15 +20,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var swipeLeftGesture: UISwipeGestureRecognizer!
     
+    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    
     var viewOffScreen = UIView()
+    var originalFrame = CGRect()
     var frameAfterRotation = CGRect()
     var previousColor = UIColor()
     
     var index = 0
+    var viewInFrontIndex = 0
     let totalRotation = CGFloat(M_PI / 12)
     var totalRotated = CGFloat(0)
     var totalMoved = CGFloat(0)
     let screenBounds = UIScreen.mainScreen().bounds
+    
+    var isPop = true
     
     var message = Message.sharedInstance
     
@@ -68,12 +74,20 @@ class ViewController: UIViewController {
         messageLabelInFront.font.fontWithSize(newMessageFontSize)
         messageLabelInBack.font.fontWithSize(newMessageFontSize)
         
-//        viewInFront.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
+        toolbar.isAccessibilityElement = true
+        
+        let rotationTransform = CGAffineTransformMakeRotation(-totalRotation)
+        frameAfterRotation = CGRectApplyAffineTransform(screenBounds, rotationTransform)
+
+        viewInFront.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
 //        viewInBack.layer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
     }
     
     override func viewDidLayoutSubviews() {
-//        viewInFront.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
+        viewInFront.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
+        //let viewInFrontCopy = viewInFront.copy()
+        originalFrame = viewInFront.frame
+        print("Original frame \(originalFrame)")
 //        viewInBack.frame = CGRect(origin: CGPointZero, size: screenBounds.size)
     }
     
@@ -118,27 +132,176 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func handlePan(sender: UIPanGestureRecognizer) {
+        let screenWidth = screenBounds.width
+        let percentMovedBeforeRemoving = CGFloat(0.6)
+        let xTranslation = sender.translationInView(view).x
+        
+        if sender.state == .Changed {
+            
+            if viewInFrontIndex != 0 && xTranslation > 0 {
+                panGesture.enabled = false
+                
+               
+                
+                //let translationTransform = CATransform3DMakeTranslation(frameAfterRotation.width, 0, 0)
+                //let rotationTransform = CATransform3DMakeRotation(0, 0, 0, 1)
+                //let finalTransform = CATransform3DConcat(translationTransform, rotationTransform)
+                let identityTransform = CATransform3DIdentity
+                let timing = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+                
+                
+                let anim = CABasicAnimation(keyPath: "transform")
+                anim.fromValue = NSValue(CATransform3D: viewInFront.layer.transform) //NSValue(CGPoint: viewInFront.layer.position)
+                anim.toValue = NSValue(CATransform3D: identityTransform)
+                anim.duration = 0.8
+                anim.timingFunction = timing
+                anim.delegate = self
+                
+                self.viewInFront.layer.addAnimation(anim, forKey: "returnToScreen")
+                self.viewInFront.layer.transform = identityTransform
+                //viewInFront.transform = CGAffineTransformIdentity
+                
+                //viewInFront.layer.position = CGPointZero
+                //viewInFront.frame = originalFrame
+                print("Frame at end \(originalFrame)")//viewInFront.frame)")
+
+            } else if totalMoved >= -(screenWidth * percentMovedBeforeRemoving) {
+                
+                if totalMoved >= (screenWidth * percentMovedBeforeRemoving) && xTranslation > 0 {
+                    return
+                }
+                
+                totalMoved += xTranslation
+                let percentOfScreenMoved = totalMoved / screenWidth
+                
+                let translation = CGAffineTransformMakeTranslation(totalMoved, 0)
+                let rotation = CGAffineTransformMakeRotation(percentOfScreenMoved * totalRotation)
+                
+                self.viewInFront.transform = CGAffineTransformConcat(translation, rotation)
+            
+            } else {
+                panGesture.enabled = false
+                
+                let translationTransform = CATransform3DMakeTranslation(-frameAfterRotation.width, 0, 0)
+                let rotationTransform = CATransform3DMakeRotation(-totalRotation, 0, 0, 1)
+                let finalTransform = CATransform3DConcat(translationTransform, rotationTransform)
+                
+                let timing = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+                
+                let anim = CABasicAnimation(keyPath: "transform")
+                anim.fromValue = NSValue(CATransform3D: viewInFront.layer.transform)
+                anim.toValue = NSValue(CATransform3D: finalTransform)
+                anim.duration = 0.8
+                anim.timingFunction = timing
+                anim.delegate = self
+                
+                self.viewInFront.layer.addAnimation(anim, forKey: "moveOffScreen")
+                self.viewInFront.layer.transform = finalTransform
+            }
+        }
+        sender.setTranslation(CGPointZero, inView: view)
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        panGesture.enabled = true
+        viewInFrontIndex += 1
+        totalMoved = 0
+        print("---Presentation---\(viewInFront.layer.presentationLayer())")
+        print("---Model---\(viewInFront.layer.modelLayer())")
+        print("Final frame \(originalFrame)")//viewInFront.frame)")
+    }
+    
     @IBAction func swipeLeft(recognizer: UISwipeGestureRecognizer) {
         
-        let rotationTransform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
-        frameAfterRotation = CGRectApplyAffineTransform(self.viewInFront.frame, rotationTransform)
-        view.layoutIfNeeded()
+        //isPop = true
         
-        UIView.animateWithDuration(0.6, delay: 0, options: [.CurveEaseIn, .LayoutSubviews], animations: {
-            self.viewInFrontLeadingConstraint.constant = -(self.frameAfterRotation.width - (self.frameAfterRotation.width - self.viewInFront.frame.width) / 2)
-            self.viewInFront.transform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
-            self.view.layoutIfNeeded()
-            }, completion: { finished in
-                if finished {
-                    print(self.viewInFront.frame)
-                    self.progressContent()
-                }
-        })
-
+        //let rotationTransform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
+        //frameAfterRotation = CGRectApplyAffineTransform(self.viewInFront.frame, rotationTransform)
+        //view.layoutIfNeeded()
         
+//        UIView.animateWithDuration(0.6, delay: 0, options: [.CurveEaseIn, .LayoutSubviews], animations: {
+//            self.viewInFrontLeadingConstraint.constant = -(self.frameAfterRotation.width - (self.frameAfterRotation.width - self.viewInFront.frame.width) / 2)
+//            self.viewInFront.transform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
+//            self.view.layoutIfNeeded()
+//            }, completion: { finished in
+//                if finished {
+//                    print(self.viewInFront.frame)
+//                    self.progressContent()
+//                }
+//        })
         
 //        let screenWidth = screenBounds.width
 //        let percentMovedBeforeRemoving = CGFloat(0.8)
+//        
+//        if recognizer.state == .Changed {
+//            if abs(totalMoved) < (screenWidth * percentMovedBeforeRemoving) {
+//                let xTranslation = recognizer.translationInView(view).x
+//                
+//                if xTranslation < 0 {
+//                    //viewInFront.center = CGPoint(x: viewInFront.center.x + xTranslation, y: viewInFront.center.y)
+//                    totalViewMoved += xTranslation
+//                    let percentOfScreenMoved = totalViewMoved / screenWidth
+//                    //                    viewInFrontLeadingConstraint.constant = totalViewMoved
+//                    //                    viewInFront.transform = CGAffineTransformMakeRotation(percentOfScreenMoved * totalRotationRadian)
+//                    let translation = CGAffineTransformMakeTranslation(totalViewMoved, 0)
+//                    let rotation = CGAffineTransformMakeRotation(percentOfScreenMoved * totalRotationRadian)
+//                    //UIView.animateWithDuration(0.0) {
+//                    print(totalViewMoved);
+//                    print(percentOfScreenMoved * totalRotationRadian);
+//                    self.viewInFront.transform = CGAffineTransformConcat(translation, rotation)
+//                    //}
+//                }
+//            } else {
+//                sender.enabled = false
+//                
+//                let translationTransform = CATransform3DMakeTranslation(-self.frameAfterRotation.width, 0, 0)
+//                //                let rotationTransform = CATransform3DMakeRotation(-self.totalRotationRadian, 0, 0, 1)
+//                //                let finalTransform = CATransform3DConcat(translationTransform, rotationTransform)
+//                //
+//                //
+//                //                // keyPath mean property we're goint to animate
+//                //                // animations method will grab all available keys
+//                //                let anim = CABasicAnimation (keyPath: "transform")
+//                //                anim.fromValue = NSValue (CATransform3D: self.viewInFront.layer.transform)
+//                //                anim.toValue = NSValue (CATransform3D: finalTransform)
+//                //                anim.duration = 1.5
+//                //
+//                //                // animation key is a "handle" that you can use to e.g. remove the animation
+//                //                self.viewInFront.layer.addAnimation(anim, forKey: "test!")
+//                //
+//                //                self.viewInFront.layer.transform = finalTransform;
+//                //
+//                //                view.layoutIfNeeded()
+//                
+//                //questions for ui team- can i do it with UIView?
+//                //where do I need layoutIfNeeded
+//                //will transform take care of constraints
+//                
+//                //view.layoutIfNeeded()
+//
+//                
+//                UIView.animateWithDuration(1.5, delay: 1.5, options: [], animations: {
+//                    //self.viewInFrontLeadingConstraint.constant = -(self.frameAfterRotation.width - (self.frameAfterRotation.width - self.viewInFront.frame.width) / 2)
+//                    //self.viewInFront.center = CGPoint(x: -self.frameAfterRotation.width / 2, y: self.viewInFront.center.y)
+//                    //self.viewInFront.transform = CGAffineTransformMakeRotation(-self.totalRotationRadian)
+//                    let translation = CGAffineTransformMakeTranslation(-self.frameAfterRotation.width, 0)
+//                    let rotation = CGAffineTransformMakeRotation(-self.totalRotationRadian)
+//                    
+//                    //                    print(-self.frameAfterRotation.width);
+//                    //                    print(-self.totalRotationRadian);
+//                    self.viewInFront.transform = CGAffineTransformConcat(translation, rotation)
+//                    //self.view.layoutIfNeeded()
+//                    }, completion: nil)
+//                
+//            }
+//            sender.setTranslation(CGPointZero, inView: view)
+        }
+
+
+        
+        
+
 //        let totalMovedBeforeRemoving = (screenWidth / 2) * percentMovedBeforeRemoving
 //        
 //        //let translation = recognizer.translationInView(view)
@@ -158,8 +321,48 @@ class ViewController: UIViewController {
 //            //viewInFront.center = CGPoint(x: (viewInFront.center.x + translation.x), y: viewInFront.center.y)
 //        }
 //        //recognizer.setTranslation(CGPointZero, inView: view)
-    }
+//    }
 
+    @IBAction func swipeRight(recognizer: UISwipeGestureRecognizer) {
+        // set back view to front view
+        // hide front view
+        // move front view to the left
+        // load previous index in the front view
+        // animate front view back on top
+        
+        isPop = false
+        
+        viewInBack.backgroundColor = viewInFront.backgroundColor
+        messageLabelInBack.text = messageLabelInFront.text!
+        
+        viewInFront.hidden = true
+        
+        view.layoutIfNeeded()
+        UIView.animateWithDuration(0, delay: 0, options: [.CurveEaseIn, .LayoutSubviews], animations: {
+            self.viewInFrontLeadingConstraint.constant = -(self.frameAfterRotation.width - (self.frameAfterRotation.width - self.viewInFront.frame.width) / 2)
+            self.viewInFront.transform = CGAffineTransformMakeRotation(-CGFloat(M_PI / 10))
+            self.view.layoutIfNeeded()
+            }, completion: { finished in
+                if finished {
+                    let nextViewDetails = self.retrieveNextViewDetails()
+                    self.viewInFront.backgroundColor = nextViewDetails.backgroundColor
+                    self.messageLabelInFront.text = nextViewDetails.message
+                    
+                    self.view.layoutIfNeeded()
+                    
+                    UIView.animateWithDuration(0.6, delay: 0, options: [.CurveEaseOut, .LayoutSubviews], animations: {
+                        self.viewInFrontLeadingConstraint.constant = 0
+                        self.viewInFront.transform = CGAffineTransformMakeRotation(-CGFloat(0))
+                        self.view.layoutIfNeeded()
+                    }, completion: nil)
+                }})
+                    
+                    //                    let newViewDetails = self.retrieveNextViewDetails()
+//                    
+//                    print(self.viewInFront.frame)
+                    //self.progressContent()
+                }
+    
     func retrieveNextViewDetails() -> (message: String, backgroundColor: UIColor){
         if index == messages.count {
             //make new messages and background colors array
@@ -167,7 +370,12 @@ class ViewController: UIViewController {
         }
         
         let newViewDetails = (message: messages[index], backgroundColor: colors[index])
-        index += 1
+        
+        if isPop {
+            index += 1
+        } else {
+            index -= 1
+        }
         
         return newViewDetails
     }

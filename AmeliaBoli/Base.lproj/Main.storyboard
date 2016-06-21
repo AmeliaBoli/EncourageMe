@@ -33,6 +33,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got This!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6l-FK-f8e">
                                         <rect key="frame" x="20" y="268" width="560" height="65"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Back Message"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="IU8-mL-YL8"/>
                                         </constraints>
@@ -47,6 +48,9 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Back View">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="W6l-FK-f8e" secondAttribute="trailing" constant="20" id="FGI-TH-fkB"/>
                                     <constraint firstItem="W6l-FK-f8e" firstAttribute="centerX" secondItem="bKI-i6-QW3" secondAttribute="centerX" id="TBa-x2-pCI"/>
@@ -64,12 +68,16 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got This!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwH-1Q-39U">
                                         <rect key="frame" x="20" y="268" width="560" height="65"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Front Message"/>
                                         <fontDescription key="fontDescription" name="Arizonia" family="Arizonia" pointSize="50"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Front View" label="Front View">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstItem="mwH-1Q-39U" firstAttribute="centerX" secondItem="8Sd-Hi-beO" secondAttribute="centerX" id="Exx-pG-gSf"/>
                                     <constraint firstItem="mwH-1Q-39U" firstAttribute="centerY" secondItem="8Sd-Hi-beO" secondAttribute="centerY" identifier="messageCenter" id="XAD-Cc-l0B"/>
@@ -81,12 +89,9 @@
                                         <exclude reference="Exx-pG-gSf"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Mt2-OT-T0X" appends="YES" id="Buo-Er-eSn"/>
-                                </connections>
                             </view>
-                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-iQ-ZJU">
-                                <rect key="frame" x="0.0" y="600" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-iQ-ZJU">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem image="Share" style="plain" id="vnZ-ZD-Zbo">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,6 +109,9 @@
                                 </items>
                             </toolbar>
                         </subviews>
+                        <accessibility key="accessibilityConfiguration" label="Main View">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8Sd-Hi-beO" firstAttribute="width" secondItem="bKI-i6-QW3" secondAttribute="width" id="2Ey-wp-UFe"/>
@@ -120,12 +128,13 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="qEy-hN-WbF" appends="YES" id="eDm-Ix-lEr"/>
-                            <outletCollection property="gestureRecognizers" destination="BA8-zW-ZPn" appends="YES" id="dag-Ns-iea"/>
+                            <outletCollection property="gestureRecognizers" destination="NzJ-K1-BLc" appends="YES" id="E5L-Ko-2pH"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="messageLabelInBack" destination="W6l-FK-f8e" id="eCQ-Af-6zj"/>
                         <outlet property="messageLabelInFront" destination="mwH-1Q-39U" id="pDl-ZV-BuH"/>
+                        <outlet property="panGesture" destination="NzJ-K1-BLc" id="LUr-PU-5Vi"/>
                         <outlet property="toolbar" destination="cKj-iQ-ZJU" id="nb6-tK-87V"/>
                         <outlet property="viewInBack" destination="bKI-i6-QW3" id="T3K-kI-oRb"/>
                         <outlet property="viewInFront" destination="8Sd-Hi-beO" id="t12-uS-aKy"/>
@@ -133,17 +142,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="BA8-zW-ZPn"/>
+                <swipeGestureRecognizer enabled="NO" direction="right" id="BA8-zW-ZPn"/>
                 <tapGestureRecognizer id="qEy-hN-WbF">
                     <connections>
                         <action selector="manageToolbar:" destination="BYZ-38-t0r" id="bHG-Iv-ewK"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="Mt2-OT-T0X">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="NzJ-K1-BLc">
                     <connections>
-                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="T5Q-zQ-4gX"/>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="Hvb-VL-uiE"/>
                     </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
+                <swipeGestureRecognizer enabled="NO" direction="left" id="Mt2-OT-T0X"/>
             </objects>
             <point key="canvasLocation" x="245" y="337"/>
         </scene>

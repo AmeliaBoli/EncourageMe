@@ -134,13 +134,26 @@ class ViewController: UIViewController {
     
     @IBAction func handlePan(sender: UIPanGestureRecognizer) {
         let screenWidth = screenBounds.width
-        let percentMovedBeforeRemoving = CGFloat(0.6)
+        let percentMovedBeforeRemoving = CGFloat(0.55)
+        let percentMovedBeforeAdding = CGFloat(0.2)
         let xTranslation = sender.translationInView(view).x
         
         if sender.state == .Changed {
             
             if viewInFrontIndex != 0 && xTranslation > 0 {
-                panGesture.enabled = false
+                
+                if totalMoved < (screenWidth * percentMovedBeforeAdding) {
+                    
+                    totalMoved += xTranslation
+                    let percentOfScreenMoved = totalMoved / screenWidth
+                    
+                    let translation = CGAffineTransformMakeTranslation(totalMoved, 0)
+                    let rotation = CGAffineTransformMakeRotation(percentOfScreenMoved * totalRotation)
+                    
+                    self.viewInFront.transform = CGAffineTransformConcat(translation, rotation)
+                
+                } else {
+                    panGesture.enabled = false
                 
                
                 
@@ -165,6 +178,7 @@ class ViewController: UIViewController {
                 //viewInFront.layer.position = CGPointZero
                 //viewInFront.frame = originalFrame
                 print("Frame at end \(originalFrame)")//viewInFront.frame)")
+                }
 
             } else if totalMoved >= -(screenWidth * percentMovedBeforeRemoving) {
                 
@@ -198,6 +212,8 @@ class ViewController: UIViewController {
                 
                 self.viewInFront.layer.addAnimation(anim, forKey: "moveOffScreen")
                 self.viewInFront.layer.transform = finalTransform
+                
+                isPop = true
             }
         }
         sender.setTranslation(CGPointZero, inView: view)
@@ -207,6 +223,8 @@ class ViewController: UIViewController {
         panGesture.enabled = true
         viewInFrontIndex += 1
         totalMoved = 0
+        
+        progressContent()
         print("---Presentation---\(viewInFront.layer.presentationLayer())")
         print("---Model---\(viewInFront.layer.modelLayer())")
         print("Final frame \(originalFrame)")//viewInFront.frame)")
@@ -389,7 +407,7 @@ class ViewController: UIViewController {
         view.layoutIfNeeded()
         
         UIView.animateWithDuration(0, delay: 0, options: .CurveEaseOut, animations: {
-            self.viewInFrontLeadingConstraint.constant = 0
+            //self.viewInFrontLeadingConstraint.constant = 0
             self.viewInFront.transform = CGAffineTransformMakeRotation(0)
             self.view.layoutIfNeeded()
             }, completion: { finished in
@@ -398,6 +416,7 @@ class ViewController: UIViewController {
                     let nextViewDetails = self.retrieveNextViewDetails()
                     self.messageLabelInBack.text = nextViewDetails.message
                     self.viewInBack.backgroundColor = nextViewDetails.backgroundColor
+                    print("In Completion \(self.viewInFront.frame)")
                 }
         })
         

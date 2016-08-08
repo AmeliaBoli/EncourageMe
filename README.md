@@ -26,7 +26,7 @@ This is a project which is currently in the middle of refactoring. As such, ther
 
 ## Attributions
 
-Colors and Fonts were selected with the help of @MatthewF.
+Colors and fonts were selected with the help of @MatthewF.
 
 ## Copyright
 

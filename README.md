@@ -1,3 +1,5 @@
+![EncourageMe Logo](/AmeliaBoli/Assets.xcassets/AppIcon.appiconset/Icon-Settings-87@3x.png) 
+
 # EncourageMe
 
 This iOS app allows users to view motivational statements. It also delivers encouraging statements throughout the day using a bell curve like algorithm to schedule notification times.

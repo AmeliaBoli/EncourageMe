@@ -24,11 +24,11 @@ class Message {
     
     let colors = [UIColor(red:0.859, green:0.384, blue:0, alpha:1), // orange #db6200
         UIColor(red:0.404, green:0, blue:0.749, alpha:1), // purple #6700bf
-        UIColor(red:0.122, green:0.647, blue:0, alpha:1), // green (bluer) #1fa500
+        UIColor(red:0.122, green:0.647, blue:0, alpha:1), // green (blue-er) #1fa500
         UIColor(red:0.655, green:0, blue:0.714, alpha:1), // violet #a700b6
         UIColor(red:0.706, green:0, blue:0, alpha:1), // red #b40000
         UIColor(red:0.765, green:0, blue:0.467, alpha:1), // magenta #c30077
-        UIColor(red:0.522, green:0.792, blue:0, alpha:1), // green (yellower) #c30077
+        UIColor(red:0.522, green:0.792, blue:0, alpha:1), // green (yellow-er) #c30077
         UIColor(red:0, green:0.243, blue:0.686, alpha:1)] // blue #003eaf]
     
     var randomColorIndexes = [0, 1, 2, 3, 4, 5, 6, 7]

@@ -36,6 +36,9 @@ class ViewController: UIViewController {
     
     var message = Message.sharedInstance
     
+    var messageIndexes: Array<Int>?
+    var colorIndexes: Array<Int>?
+    
     var velocities = [CGFloat]()
     var cycledThrough = false
     var movementStatus = MovementStatus.none
@@ -58,14 +61,19 @@ class ViewController: UIViewController {
     UIColor(red:0.706, green:0, blue:0, alpha:1)] // red #b40000
     
     override func viewDidLoad() {
+        
+        messageIndexes = message.randomMessageIndexes
+        colorIndexes = message.randomColorIndexes
+        
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        let inFrontViewDetails = (message: messages[0], backgroundColor: colors[0])
+        // FIXME: Appropriately handle the model and optional types
+        let inFrontViewDetails = (message: message.messages[messageIndexes![0]], backgroundColor: message.colors[colorIndexes![0]])
         messageLabelInFront.text = inFrontViewDetails.message //messages[0] //message.createTodaysItem(message.messages, randomIndexes: &message.randomMessageIndexes, lastUsedIndex: &message.lastUsedMessage) as? String
         viewInFront.backgroundColor = inFrontViewDetails.backgroundColor //colors[0] //message.createTodaysItem(message.colors, randomIndexes: &message.randomColorIndexes, lastUsedIndex: &message.lastUsedColor) as? UIColor
         
-        let inBackViewDetails = (message: messages[1], backgroundColor: colors[1])
+        let inBackViewDetails = (message: message.messages[messageIndexes![1]], backgroundColor: message.colors[colorIndexes![1]])
         messageLabelInBack.text = inBackViewDetails.message //messages[1]
         viewInBack.backgroundColor = inBackViewDetails.backgroundColor //colors[1]
         
@@ -141,7 +149,7 @@ class ViewController: UIViewController {
     }
     
     func makeDuration(transform: CATransform3D, velocity: CGFloat) -> Double {
-        let durationRange = (min: 0.4, max: 1.5)
+        let durationRange = (min: 0.2, max: 0.8)
         
         let distanceToTravel = transform.m41 - viewInFront.layer.transform.m41
         var duration = abs(Double(distanceToTravel / velocity))
